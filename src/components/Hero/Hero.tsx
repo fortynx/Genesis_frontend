@@ -1,28 +1,51 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Image from "next/image";
 
+const slides = [
+  { id: 1, title: "Expand Horizons", subtitle: "Where learning meets creativity", image: "/hero1.jpg" },
+  { id: 2, title: "Redefine Possibility", subtitle: "A campus built for the future", image: "/hero2.jpeg" },
+  { id: 3, title: "Imagine Beyond Limits", subtitle: "Discover talent • Build confidence", image: "/hero3.jpeg" },
+];
+
 export default function Hero() {
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const t = setInterval(() => setCurrent((prev) => (prev + 1) % slides.length), 4000);
+    return () => clearInterval(t);
+  }, []);
+
   return (
-    <section className="relative w-full h-[90vh] overflow-hidden">
+    <section className="relative w-full h-[90vh] overflow-hidden pt-20">
+      {slides.map((slide, i) => (
+        <div
+          key={slide.id}
+          className={`absolute inset-0 transition-opacity duration-700 ${
+            i === current ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          <Image src={slide.image} alt={slide.title} fill className="object-cover" priority />
+          <div className="absolute inset-0 bg-black/40" />
 
-      {/* Background Image */}
-      <Image
-        src="/hero1.jpg"
-        alt="School Building"
-        fill
-        priority
-        className="object-cover"
-      />
+          <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-6">
+            <h1 className="text-white text-5xl md:text-6xl font-bold drop-shadow-lg">{slide.title}</h1>
+            <p className="text-white text-xl md:text-2xl mt-4 drop-shadow-lg">{slide.subtitle}</p>
+          </div>
+        </div>
+      ))}
 
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/20"></div>
-
-      {/* Title */}
-      <div className="absolute inset-0 flex items-end justify-center pb-24">
-        <h1 className="text-white text-6xl font-bold text-center drop-shadow-xl leading-tight">
-          Redefine Possibility
-        </h1>
+      {/* Dots */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-3">
+        {slides.map((_, idx) => (
+          <button
+            key={idx}
+            onClick={() => setCurrent(idx)}
+            className={`w-3 h-3 rounded-full ${idx === current ? "bg-white" : "bg-white/50"}`}
+          />
+        ))}
       </div>
-
     </section>
   );
 }
