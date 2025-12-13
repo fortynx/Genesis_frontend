@@ -21,24 +21,24 @@ export default function VisionAndValuesPage() {
   const aboutDropdownItems = [
     { title: "Vision & Values", href: "/about/vision", key: "vision-values" },
     { title: "Our Philosophy", href: "/about/philosophy", key: "philosophy" },
-    { title: "Our Campuses", href: "/about/campuses", key: "campuses" },
+    
     { title: "Our People", href: "/about/people", key: "people" },
   ];
 
   const academicsDropdown = [
+    {title:"PrePrimary",href:"/academics/preprimary"},
     { title: "Primary", href: "/academics/primary" },
     { title: "Middle", href: "/academics/middle" },
     { title: "High", href: "/academics/high" },
   ];
 
   const lifeDropdown = [
-    { title: "Co-Curricular", href: "/life/cocurricular" },
-    { title: "Sports", href: "/life/sports" },
-    { title: "Clubs", href: "/life/clubs" },
+    { title: "Beyond Academics", href: "/life/beyondacademics" },
+    
   ];
 
   const admissionsDropdown = [
-    { title: "Admission Process", href: "/admissions/process" },
+    { title: "Admissions", href: "/admissions/process" },
     { title: "Fee Structure", href: "/admissions/fees" },
     { title: "Apply Now", href: "/admissions/apply" },
   ];
@@ -325,17 +325,61 @@ export default function VisionAndValuesPage() {
       <section className="max-w-6xl mx-auto px-6 md:px-16 py-16">
         <h2 className="text-3xl font-bold text-green-900 mb-4">Our Vision</h2>
         <p className="text-gray-700 text-lg mb-10">
-          At <strong>Genesis International School</strong>, we nurture confident,
-          compassionate, and curious learners prepared for a global future.
+          At <strong>Genesis International School</strong>, our vision is to cultivate a nurturing and supportive environment where every student feels a deep sense of belonging. We empower children to grow fearlessly, develop confidence, and extend support to others as they learn and lead.
+
+           We are dedicated to shaping confident, compassionate, and responsible leaders who are prepared to make a meaningful and positive impact on the world.
         </p>
 
-        <h2 className="text-3xl font-bold text-green-900 mb-8">Our Values</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {["Curiosity","Creativity","Collaboration","Character & Excellence","Leadership","Community"]
-            .map((v, i) => (
-              <div key={i} className="bg-white p-6 rounded-xl shadow-lg">
-                <h3 className="text-xl font-semibold text-green-800 mb-2">{v}</h3>
-                <p className="text-gray-700">Lorem ipsum dolor sit amet.</p>
+        <h2 className="text-3xl font-bold text-green-900 mb-12 text-center">
+  Our Values
+</h2>
+        <div className="relative max-w-4xl mx-auto">
+           {/* Vertical Line */}
+  <div className="absolute left-1/2 top-0 h-full w-1 bg-green-200 transform -translate-x-1/2 hidden md:block"></div>
+
+  {[
+    {
+      title: "Curiosity",
+      desc: "Inspiring a love for learning and inquiry.",
+    },
+    {
+      title: "Creativity",
+      desc: "Encouraging innovation and original thinking.",
+    },
+    {
+      title: "Collaboration",
+      desc: "Fostering teamwork and collective problem-solving.",
+    },
+    {
+      title: "Character & Excellence",
+      desc: "Building integrity, resilience, and a pursuit of excellence.",
+    },
+    {
+      title: "Leadership & Global Citizenship",
+      desc: "Developing responsible leaders with a global perspective.",
+    },
+    {
+      title: "Community",
+      desc: "Strengthening connections and inclusivity within and beyond the school.",
+    },
+  ].map((item, index) => (
+    <div
+      key={index}
+      className={`relative flex flex-col md:flex-row items-center mb-12 ${
+        index % 2 === 0 ? "md:flex-row-reverse" : ""
+      }`}
+    >
+      {/* Content Box */}
+      <div className="bg-white shadow-lg rounded-xl p-6 w-full md:w-[45%]">
+        <h3 className="text-xl font-semibold text-green-800 mb-2">
+          {item.title}
+        </h3>
+        <p className="text-gray-700">{item.desc}</p>
+      </div>
+      {/* Dot */}
+      <div className="hidden md:flex w-[10%] justify-center">
+        <span className="w-5 h-5 bg-green-700 rounded-full border-4 border-white shadow-md"></span>
+      </div>
               </div>
             ))}
         </div>
