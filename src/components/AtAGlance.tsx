@@ -1,4 +1,3 @@
-// components/AtAGlance.tsx
 "use client";
 
 import { useState } from "react";
@@ -45,23 +44,40 @@ const tabs = [
 ];
 
 export default function AtAGlance() {
-  // activeIndex = currently selected (clicked) tab
   const [activeIndex, setActiveIndex] = useState<number>(0);
-  // previewIndex = currently hovered preview (changes image only for preview)
   const [previewIndex, setPreviewIndex] = useState<number | null>(null);
 
-  // which image to show: preview (hover) overrides active
   const shownIndex = previewIndex ?? activeIndex;
   const shown = tabs[shownIndex];
 
   return (
-    <section id="at-a-glance" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-4xl font-extrabold text-center mb-8">At a Glance</h2>
+    <section id="about" className="py-12 bg-white" >
+      <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-8">At a Glance</h2>
 
-        <div className="grid md:grid-cols-12 gap-6 items-center">
-          {/* left stacked menu */}
-          <div className="md:col-span-4 space-y-4">
+      <div className="max-w-4xl mx-auto px-4">
+        {/* container: on mobile stack image above menu; on md show side-by-side */}
+        <div className="flex flex-col md:flex-row rounded-lg overflow-hidden shadow-lg md:h-72">
+          {/* RIGHT IMAGE (order-1 on mobile so image is on top) */}
+          <div className="relative md:w-2/3 w-full md:order-2 order-1 md:h-full h-64">
+            <Image src={shown.image} alt={shown.title} fill className="object-cover" priority />
+
+            <div className="absolute inset-0 bg-black/55 flex items-center">
+              <div className="px-6 text-white max-w-xl">
+                <h3 className="text-xl md:text-2xl font-bold">{shown.title}</h3>
+                <p className="mt-2 text-sm md:text-base">{shown.desc}</p>
+
+                <Link
+                  href={shown.slug}
+                  className="inline-block mt-4 px-5 py-2 bg-white/20 border border-white rounded-full hover:bg-white/30"
+                >
+                  Learn More
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* LEFT MENU (order-2 on mobile so it stacks below image) */}
+          <div className="md:w-1/3 w-full flex flex-col md:order-1 order-2">
             {tabs.map((tab, i) => {
               const isActive = i === activeIndex;
               return (
@@ -70,64 +86,18 @@ export default function AtAGlance() {
                   href={tab.slug}
                   onMouseEnter={() => setPreviewIndex(i)}
                   onMouseLeave={() => setPreviewIndex(null)}
-                  // clicking navigates; we also update activeIndex so selected appearance changes immediately
                   onClick={() => setActiveIndex(i)}
-                  className={`block ${tab.color} text-white px-6 py-8 w-full text-left flex justify-between items-center font-semibold transition-transform duration-150
-                    ${isActive ? "ring-4 ring-white/30 transform scale-[1.01]" : "opacity-95 hover:opacity-100 hover:scale-[1.01]"}`}
+                  className={`${tab.color} text-white px-6 py-4 flex items-center justify-between font-semibold group transition-all flex-1 min-h-[64px]
+                    ${isActive ? "scale-[1.01] ring-4 ring-white/30" : "opacity-95 hover:opacity-100"}`}
                 >
-                  <span className="text-lg md:text-base">{tab.label}</span>
-                  <span className="text-2xl opacity-80">→</span>
+                  <span className="text-sm md:text-base">{tab.label}</span>
+                  <span className="text-2xl transition-opacity duration-150 opacity-0 group-hover:opacity-100">→</span>
                 </Link>
               );
             })}
           </div>
-
-          {/* right image card */}
-          <div className="md:col-span-8">
-            <div className="relative rounded-lg overflow-hidden h-72 shadow-lg">
-              <Image
-                src={shown.image}
-                alt={shown.title}
-                fill
-                className="object-cover"
-                priority
-              />
-
-              <div className="absolute inset-0 bg-black/45 flex items-center">
-                <div className="max-w-2xl ml-6 md:ml-12 text-white px-4">
-                  <h3 className="text-3xl font-bold">{shown.title}</h3>
-                  <p className="mt-3 text-sm md:text-base">{shown.desc}</p>
-
-                  <div className="mt-6 flex items-center gap-4">
-                    {/* Learn more opens the actual page */}
-                    <Link
-                      href={shown.slug}
-                      className="px-5 py-2 bg-white/20 border border-white rounded-full hover:bg-white/30"
-                    >
-                      Learn More
-                    </Link>
-
-                    {/* quick small preview dots */}
-                    <div className="hidden md:flex items-center gap-2 ml-4">
-                      {tabs.map((_, j) => (
-                        <button
-                          key={j}
-                          onClick={() => {
-                            setActiveIndex(j);
-                            setPreviewIndex(null);
-                          }}
-                          aria-label={`Show ${tabs[j].label}`}
-                          className={`w-3 h-3 rounded-full ${j === shownIndex ? "bg-white" : "bg-white/40"}`}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-      </div> 
+      </div>
     </section>
   );
 }

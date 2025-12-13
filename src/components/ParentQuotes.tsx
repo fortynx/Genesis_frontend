@@ -30,76 +30,61 @@ const quotes = [
 export default function ParentQuotes() {
   const [index, setIndex] = useState(0);
 
+  // AUTO SCROLL
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((i) => (i + 1) % quotes.length);
+    }, 5000); // 5 seconds
+    return () => clearInterval(interval);
+  }, []);
+
   const next = () => setIndex((i) => (i + 1) % quotes.length);
-  const prev = () => setIndex((i) => (i - 1 + quotes.length) % quotes.length);
 
   return (
     <section className="py-20 bg-gradient-to-b from-white to-[#f6f8fb] relative">
 
-      {/* BACKGROUND WORLD MAP */}
+      {/* BACKGROUND MAP */}
       <div className="absolute inset-0 opacity-10 -z-10">
         <Image src="/bg-map.png" alt="" fill className="object-cover" />
       </div>
 
-      <div className="max-w-6xl mx-auto px-6">
-        <h2 className="text-3xl font-bold mb-16 text-center">Parent Quote</h2>
+      <div className="max-w-4xl mx-auto px-6 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold mb-14">
+          Parent Quote
+        </h2>
 
-        <div className="relative flex flex-col md:flex-row items-center gap-12">
-
-          {/* Left Arrow */}
-          <button
-            onClick={prev}
-            className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 
-                       w-10 h-10 bg-white shadow rounded-full justify-center items-center"
-          >
-            ‹
-          </button>
+        <div className="relative flex flex-col items-center">
 
           {/* Avatar */}
-          <div className="w-40 h-40 rounded-full shadow overflow-hidden">
+          <div className="w-36 h-36 rounded-full shadow overflow-hidden mb-6">
             <Image
               src={quotes[index].photo}
               alt={quotes[index].name}
-              width={160}
-              height={160}
+              width={144}
+              height={144}
               className="object-cover"
             />
           </div>
 
-          {/* Text */}
-          <div className="md:w-2/3">
-            <p className="text-gray-700 leading-relaxed text-lg">
-              {quotes[index].text}
-            </p>
-            <p className="mt-4 font-semibold text-[#e07b3a] text-lg">
-              {quotes[index].name}
-            </p>
-          </div>
+          {/* Quote text */}
+          <p className="text-gray-700 leading-relaxed text-lg max-w-2xl">
+            {quotes[index].text}
+          </p>
 
-          {/* Right Arrow */}
+          {/* Name */}
+          <p className="mt-4 font-semibold text-[#e07b3a] text-lg">
+            {quotes[index].name}
+          </p>
+
+          {/* RIGHT ARROW ONLY */}
           <button
             onClick={next}
-            className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 
-                     w-10 h-10 bg-white shadow rounded-full justify-center items-center"
+            aria-label="Next quote"
+            className="mt-10 w-12 h-12 bg-white shadow-lg rounded-full flex items-center justify-center text-2xl hover:bg-gray-100 transition"
           >
-            ›
+            →
           </button>
-
         </div>
-
-        {/* Dots */}
-        <div className="flex justify-center gap-2 mt-6">
-          {quotes.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setIndex(i)}
-              className={`w-3 h-3 rounded-full ${
-                index === i ? "bg-[#436873]" : "bg-gray-300"
-              }`}
-            />
-          ))}
-        </div>
-
       </div>
     </section>
   );

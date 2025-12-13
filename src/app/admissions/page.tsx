@@ -27,7 +27,7 @@ export default function AdmissionsPage() {
 
       {/* Intro */}
       <main className="flex-1">
-        <section className="max-w-6xl mx-auto px-6 py-12 text-center">
+        <section className="max-w-6xl mx-auto px-6 py-12 text-center"  id="admissions">
           <p className="text-gray-600 max-w-3xl mx-auto">
             Discover how GENESIS SCHOOL’s vibrant community and learning programmes can meet your child’s educational
             needs and aspirations. Our admissions process gives you a clear step-by-step guide to joining our school.

@@ -13,36 +13,57 @@ export default function Hero() {
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
-    const t = setInterval(() => setCurrent((prev) => (prev + 1) % slides.length), 4000);
+    const t = setInterval(
+      () => setCurrent((prev) => (prev + 1) % slides.length),
+      4000
+    );
     return () => clearInterval(t);
   }, []);
 
   return (
-    <section className="relative w-full h-[90vh] overflow-hidden pt-20">
+    <section className="relative w-full min-h-screen overflow-hidden" id="home">
+
       {slides.map((slide, i) => (
         <div
           key={slide.id}
           className={`absolute inset-0 transition-opacity duration-700 ${
-            i === current ? "opacity-100" : "opacity-0"
+            i === current ? "opacity-100 z-10" : "opacity-0 z-0"
           }`}
         >
-          <Image src={slide.image} alt={slide.title} fill className="object-cover" priority />
+          {/* FULL WIDTH & HEIGHT IMAGE */}
+          <Image
+            src={slide.image}
+            alt={slide.title}
+            fill
+            className="object-cover"
+            priority={i === 0}
+          />
+
+          {/* Dark overlay */}
           <div className="absolute inset-0 bg-black/40" />
 
+          {/* Text */}
           <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-6">
-            <h1 className="text-white text-5xl md:text-6xl font-bold drop-shadow-lg">{slide.title}</h1>
-            <p className="text-white text-xl md:text-2xl mt-4 drop-shadow-lg">{slide.subtitle}</p>
+            <h1 className="text-white text-3xl sm:text-4xl md:text-6xl font-bold drop-shadow-lg">
+              {slide.title}
+            </h1>
+            <p className="text-white text-base sm:text-lg md:text-2xl mt-4 drop-shadow-lg">
+              {slide.subtitle}
+            </p>
           </div>
         </div>
       ))}
 
       {/* Dots */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-3">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-20">
         {slides.map((_, idx) => (
           <button
             key={idx}
             onClick={() => setCurrent(idx)}
-            className={`w-3 h-3 rounded-full ${idx === current ? "bg-white" : "bg-white/50"}`}
+            aria-label={`Slide ${idx + 1}`}
+            className={`w-3 h-3 rounded-full transition ${
+              idx === current ? "bg-white" : "bg-white/50"
+            }`}
           />
         ))}
       </div>
