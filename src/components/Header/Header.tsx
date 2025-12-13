@@ -4,9 +4,11 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { headerMenu } from "./MenuData";
+import { FiChevronDown } from "react-icons/fi";
 
 export default function Header() {
   const [sticky, setSticky] = useState(false);
+  const [openMenu, setOpenMenu] = useState<number | null>(null);
 
   useEffect(() => {
     const handleScroll = () => setSticky(window.scrollY > 50);
@@ -17,13 +19,11 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        sticky
-          ? "bg-white shadow-md text-black"
-          : "bg-transparent text-white"
+        sticky ? "bg-white shadow-md text-black" : "bg-transparent text-white"
       }`}
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center py-5 px-6">
-        
+
         {/* LOGO */}
         <Link href="/">
           <Image
@@ -40,43 +40,35 @@ export default function Header() {
           {headerMenu.map((item, index) => (
             <div
               key={index}
-              className="relative group cursor-pointer flex items-center gap-1"
+              className="relative flex flex-col"
+              onMouseEnter={() => setOpenMenu(index)}  // ⭐ Open dropdown on hover
+              onMouseLeave={() => setOpenMenu(null)}   // ⭐ Close when moving cursor
             >
-              <span className="hover:text-orange-500 transition">
-                {item.title}
+              {/* Parent Menu Item */}
+              <span className="cursor-pointer flex items-center gap-1 hover:text-orange-500 transition">
+                {item.children ? (
+                  <>
+                    {item.title}
+                    <FiChevronDown
+                      size={18}
+                      className={`transition ${
+                        openMenu === index ? "rotate-180 text-orange-500" : ""
+                      }`}
+                    />
+                  </>
+                ) : (
+                  <Link href={item.href}>{item.title}</Link>
+                )}
               </span>
 
-              {/* DROPDOWN ARROW */}
-              {item.children && (
-                <svg
-                  className={`
-                    w-3 h-3 transition-transform duration-300 mt-[3px]
-                    ${sticky ? "text-black" : "text-white"}
-                    group-hover:rotate-180
-                  `}
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              )}
-
-              {/* DROPDOWN MENU BOX */}
-              {item.children && (
+              {/* DROPDOWN */}
+              {item.children && openMenu === index && (
                 <div
                   className="
-                    absolute left-0 top-8 hidden group-hover:block 
-                    bg-[#436873]
-                    text-white 
-                    rounded-md shadow-xl 
-                    w-[260px]
-                    overflow-hidden
+                    absolute left-0 top-8
+                    bg-[#436873] text-white
+                    rounded-md shadow-xl
+                    w-[260px] z-50
                     border border-white/20
                   "
                 >
@@ -86,11 +78,12 @@ export default function Header() {
                       href={child.href}
                       className="
                         block px-5 py-4
-                        border-t border-white/25
-                        first:border-t-0
+                        border-t border-white/25 first:border-t-0
                         hover:bg-[#517c89]
                         text-[16px]
+                        transition
                       "
+                      onClick={() => setOpenMenu(null)}
                     >
                       {child.title}
                     </Link>
@@ -103,11 +96,9 @@ export default function Header() {
 
         {/* CTA BUTTON */}
         <Link
-          href="#"
+          href="/visit-us"
           className={`px-6 py-2 rounded-full font-semibold transition-all ${
-            sticky
-              ? "bg-orange-500 text-white"
-              : "bg-white text-orange-500"
+            sticky ? "bg-orange-500 text-white" : "bg-white text-orange-500"
           }`}
         >
           Visit Us
