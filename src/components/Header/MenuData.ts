@@ -3,10 +3,10 @@ export const headerMenu = [
   {
     title: "About Us",
     children: [
-      { title: "Vision and Values", href: "/vision" },
-      { title: "Our Philosophy", href: "/philosophy" },
-      { title: "Our Campuses", href: "/campuses" },
-      { title: "Our People", href: "/people" },
+      { title: "Vision and Values", href: "/about/vision" },
+      { title: "Our Philosophy", href: "/about/philosophy" },
+      { title: "Our Campuses", href: "/about/campuses" },
+      { title: "Our People", href: "/about/people" },
     ],
   },
   {
@@ -35,4 +35,7 @@ export const headerMenu = [
   },
   { title: "Gallery", href: "/gallery" },
   { title: "Mandatory Public Disclosure", href: "/disclosure" },
+  
+
+
 ];
