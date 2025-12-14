@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FiChevronDown } from "react-icons/fi";
+import Footer from "@/components/Footer";
 
 export default function OurCampusesPage() {
   // Mobile Menu
@@ -63,7 +64,7 @@ export default function OurCampusesPage() {
     <div className="bg-gray-50 min-h-screen">
 
       {/* HERO SECTION */}
-      <section className="relative bg-[#313e3b] text-white py-16 px-6 md:px-16">
+      <section className="relative bg-[#313e3b] text-white min-h-[80vh] py-16 px-6 md:px-16">
 
         {/* HEADER */}
         <div className="flex justify-between items-center mb-12 relative">
@@ -355,6 +356,7 @@ export default function OurCampusesPage() {
           ))}
         </div>
       </section>
+      <Footer/>
     </div>
   );
 }
