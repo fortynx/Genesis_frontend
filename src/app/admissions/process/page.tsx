@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FiChevronDown } from "react-icons/fi";
+import Footer from "@/components/Footer";
 
 export default function AdmissionProcessPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -41,7 +42,7 @@ export default function AdmissionProcessPage() {
   return (
     <div className="bg-gray-50 min-h-screen">
       {/* HERO */}
-      <section className="relative bg-[#313e3b] text-white py-16 px-6 md:px-16">
+      <section className="relative bg-[#313e3b] text-white min-h-[80vh] py-16 px-6 md:px-16">
         <div className="flex justify-between items-center mb-12">
           <Link href="/">
           <Image
@@ -384,7 +385,7 @@ export default function AdmissionProcessPage() {
     </div>
   </div>
 </section>
-
+<Footer/>
     </div>
   );
 }
