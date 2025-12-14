@@ -38,24 +38,23 @@ export default function OurCampusesPage() {
   const aboutDropdownItems = [
     { title: "Vision & Values", href: "/about/vision", key: "vision-values" },
     { title: "Our Philosophy", href: "/about/philosophy", key: "philosophy" },
-    { title: "Our Campuses", href: "/about/campuses", key: "campuses" },
     { title: "Our People", href: "/about/people", key: "people" },
   ];
 
   const academicsDropdown = [
+    {title:"PrePrimary",href:"/academics/preprimary"},
     { title: "Primary", href: "/academics/primary" },
     { title: "Middle", href: "/academics/middle" },
-    { title: "Secondary", href: "/academics/high" },
+    { title: "High", href: "/academics/high" },
   ];
 
   const lifeDropdown = [
-    { title: "Co-Curricular", href: "/life/cocurricular" },
-    { title: "Sports", href: "/life/sports" },
-    { title: "Clubs", href: "/life/clubs" },
+    { title: "BeyondAcademics", href: "/life/beyondacademics" },
+   
   ];
 
   const admissionsDropdown = [
-    { title: "Admission Process", href: "/admissions/process" },
+    { title: "Admissions", href: "/admissions/process" },
     { title: "Fee Structure", href: "/admissions/fees" },
     { title: "Apply Now", href: "/admissions/apply" },
   ];

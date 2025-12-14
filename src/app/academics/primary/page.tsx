@@ -19,24 +19,24 @@ export default function PrimaryPage() {
   const aboutDropdown = [
     { title: "Vision & Values", href: "/about/vision", key: "vision-values" },
     { title: "Our Philosophy", href: "/about/philosophy", key: "philosophy" },
-    { title: "Our Campuses", href: "/about/campuses", key: "campuses" },
+   
     { title: "Our People", href: "/about/people", key: "people" },
   ];
 
   const academicsDropdown = [
+    {title:"PrePrimary",href:"/academics/preprimary",key:"preprimary"},
     { title: "Primary", href: "/academics/primary", key: "primary" },
     { title: "Middle", href: "/academics/middle", key: "middle" },
     { title: "High", href: "/academics/high", key: "high" },
   ];
 
   const lifeDropdown = [
-    { title: "Co-Curricular", href: "/life/cocurricular" },
-    { title: "Sports", href: "/life/sports" },
-    { title: "Clubs", href: "/life/clubs" },
+    { title: "Beyond Academics", href: "/life/beyondacademics" },
+    
   ];
 
   const admissionsDropdown = [
-    { title: "Admission Process", href: "/admissions/process" },
+    { title: "Admissions", href: "/admissions/process" },
     { title: "Fee Structure", href: "/admissions/fees" },
     { title: "Apply Now", href: "/admissions/apply" },
   ];
@@ -326,26 +326,78 @@ export default function PrimaryPage() {
         </div>
       </section>
 
-      {/* CONTENT SECTION */}
-      <section className="max-w-6xl mx-auto px-6 md:px-16 py-16">
-        <h2 className="text-3xl font-bold text-green-900 mb-6">Our Primary Program</h2>
+      {/* PRIMARY SCHOOL SECTION */}
+<section className="max-w-6xl mx-auto px-6 md:px-16 py-16">
+  <h2 className="text-3xl font-bold text-green-900 mb-12">Primary School</h2>
 
-        <p className="text-gray-700 text-lg leading-relaxed mb-8">
-          Our Primary School focuses on building strong foundations in literacy, numeracy,
-          critical thinking, creativity, and curiosity-driven learning.
+  <div className="flex flex-col gap-16">
+
+    {/* Introduction (Image Left) */}
+    <div className="flex flex-col md:flex-row bg-white rounded-xl shadow-lg hover:shadow-2xl overflow-hidden">
+      <div className="md:w-1/3">
+        
+      </div>
+      <div className="md:w-2/3 p-6 flex flex-col justify-center">
+        <p className="text-gray-700 mb-4">
+          It takes curiosity, an open mind, and freedom to see things in a new way.
+          From Grade 1 onwards, students enter the "Knowledge Phase," a time when their natural inclination towards abstraction and intellectual exploration becomes more pronounced. At ABODE, we embrace this phase with a focus on developing independent learning skills while deepening their sense of community. Emphasis is placed on language development and logical reasoning, with interdisciplinary projects that merge subjects, stimulating curiosity, creativity and problem-solving. Through hands-on activities and collaborative work, students cultivate both academic and social skills.
         </p>
+        <p className="text-gray-700">
+          ABODE follows the Cambridge International Primary Programme, while also integrating key objectives from the CBSE curriculum to ensure students have the option to transition smoothly to the CBSE board.
+        </p>
+      </div>
+    </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {["English", "Math", "Science"].map((subject, i) => (
-            <div key={i} className="bg-white p-6 rounded-xl shadow-lg">
-              <h3 className="text-xl font-bold text-green-800 mb-2">{subject}</h3>
-              <p className="text-gray-600">
-                Interactive and skill-based curriculum designed to build strong fundamentals.
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
+    {/* Subjects Offered (Image Right) */}
+    <div className="flex flex-col md:flex-row-reverse bg-white rounded-xl shadow-lg hover:shadow-2xl overflow-hidden">
+      <div className="md:w-1/3">
+        
+      </div>
+      <div className="md:w-2/3 p-6 flex flex-col justify-center">
+        <h3 className="text-xl font-semibold text-green-800 mb-4">Subjects Offered</h3>
+        <ul className="list-decimal list-inside text-gray-700 space-y-2">
+          <li>Math</li>
+          <li>English</li>
+          <li>Science</li>
+          <li>Global Perspectives/Social</li>
+          <li>Second language: Hindi/Telugu</li>
+          <li>Third language: Hindi, Telugu & French (Grade 4 & 5), French (6 & 7)</li>
+          <li>Compulsory Telugu (Grade 1-7)</li>
+          <li>ICT</li>
+        </ul>
+      </div>
+    </div>
+
+    {/* Key Features (Image Left) */}
+    <div className="flex flex-col md:flex-row bg-white rounded-xl shadow-lg hover:shadow-2xl overflow-hidden">
+      <div className="md:w-1/3">
+        
+      </div>
+      <div className="md:w-2/3 p-6 flex flex-col justify-center">
+        <h3 className="text-xl font-semibold text-green-800 mb-4">Key Features of Our Curriculum</h3>
+        <ul className="list-disc list-inside text-gray-700 space-y-3">
+          <li>
+            <strong>Optimized Learning Environment:</strong> Classrooms are equipped with appropriate resources to create an engaging learning environment and facilitate deeper understanding of mathematical and scientific concepts through interactive learning.
+          </li>
+          <li>
+            <strong>Collaborative Learning:</strong> Small group presentations and collaborative projects promote teamwork, critical thinking, and active participation.
+          </li>
+          <li>
+            <strong>Student-Centered Classrooms:</strong> Designed to engage students through dynamic activities and student-led exploration, moving away from traditional teacher-directed instruction.
+          </li>
+          <li>
+            <strong>In-Class Topic-Based Library:</strong> A diverse collection of resources supports ongoing learning, encourages independent research, and sparks intellectual curiosity.
+          </li>
+          <li>
+            <strong>Focus on Emotional and Social Development:</strong> Programs and activities support the development of social-emotional skills, resilience, and self-regulation.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
     </div>
   );
 }

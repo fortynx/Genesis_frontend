@@ -21,19 +21,19 @@ export default function AdmissionProcessPage() {
   ];
 
   const academicsDropdown = [
+    {title:"PrePrimary",href:"/academics/preprimary",key:"preprimary"},
     { title: "Primary", href: "/academics/primary", key: "primary" },
     { title: "Middle", href: "/academics/middle", key: "middle" },
     { title: "High", href: "/academics/high", key: "high" },
   ];
 
   const lifeDropdown = [
-    { title: "Co-Curricular", href: "/life/cocurricular", key: "cocurricular" },
-    { title: "Clubs", href: "/life/clubs", key: "clubs" },
-    { title: "Sports", href: "/life/sports", key: "sports" },
+    { title: "Beyond Academics", href: "/life/beyondacademics", key: "beyondacademics" },
+    
   ];
 
   const admissionsDropdown = [
-    { title: "Admission Process", href: "/admissions/process", key: "process" },
+    { title: "Admissions", href: "/admissions/process", key: "process" },
     { title: "Fee Structure", href: "/admissions/fees", key: "fees" },
     { title: "Apply Now", href: "/admissions/apply", key: "apply" },
   ];
@@ -321,23 +321,70 @@ export default function AdmissionProcessPage() {
         {/* PAGE HEADING */}
         <div className="text-left max-w-3xl mt-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Admission Process
+            Admissions 
           </h1>
-          <p className="text-lg md:text-xl">
-            Understand the complete process for joining our school.
-          </p>
+          
         </div>
       </section>
 
-      {/* CONTENT */}
-      <section className="max-w-6xl mx-auto px-6 md:px-16 py-16">
-        <h2 className="text-3xl font-bold text-green-900 mb-8">
-          How to Apply
-        </h2>
-        <p className="text-gray-700 leading-relaxed">
-          Our admission process is simple, transparent, and student-friendly…
-        </p>
-      </section>
+      {/* BEGIN OUR JOURNEY SECTION */}
+<section className="max-w-6xl mx-auto px-6 md:px-16 py-16">
+  <h2 className="text-3xl md:text-4xl font-bold text-green-900 mb-12 text-center">
+    Begin Our Journey
+  </h2>
+
+  <div className="flex flex-col md:flex-row items-center gap-8">
+    {/* LEFT IMAGE */}
+    <div className="md:w-1/2">
+      <img
+        src="/genesis.jpg"
+        alt="Begin Journey"
+        className="w-full h-auto rounded-lg shadow-lg"
+      />
+    </div>
+
+    {/* RIGHT FORM */}
+    <div className="md:w-1/2 bg-white p-8 rounded-lg shadow-lg">
+      <form className="flex flex-col gap-4">
+        <input
+          type="text"
+          placeholder="Name"
+          className="border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-green-500"
+        />
+        <input
+          type="email"
+          placeholder="Email ID"
+          className="border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-green-500"
+        />
+        <input
+          type="tel"
+          placeholder="Mobile Number"
+          className="border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-green-500"
+        />
+        <select className="border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-green-500">
+          <option value="">Select Campus</option>
+          <option>Main Campus</option>
+          <option>East Campus</option>
+          <option>West Campus</option>
+        </select>
+        <select className="border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-green-500">
+          <option value="">Select Grade</option>
+          <option>Pre-Primary</option>
+          <option>Primary</option>
+          <option>Middle</option>
+          <option>High</option>
+        </select>
+        <button
+          type="submit"
+          className="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-md mt-2"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
     </div>
   );
 }
