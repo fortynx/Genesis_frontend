@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FiChevronDown } from "react-icons/fi";
+import Footer from "@/components/Footer";
 
 export default function PhilosophyPage() {
   // Mobile Menu
@@ -52,7 +53,7 @@ export default function PhilosophyPage() {
     <div className="bg-gray-50 min-h-screen">
 
       {/* HERO SECTION */}
-      <section className="relative bg-[#313e3b] text-white py-16 px-6 md:px-16">
+      <section className="relative bg-[#313e3b] text-white min-h-[80vh] py-16 px-6 md:px-16">
 
         {/* HEADER */}
         <div className="flex justify-between items-center mb-12 relative">
@@ -319,7 +320,7 @@ export default function PhilosophyPage() {
 
         {/* HERO TEXT */}
         <div className="mt-10 max-w-3xl">
-          <h1 className="text-4xl md:text-5xl font-bold">Our Vision & Values</h1>
+          <h1 className="text-4xl md:text-5xl font-bold">Our Philosophy</h1>
           <p className="text-lg md:text-xl mt-2">
             About us: Our Philosophy
           </p>
@@ -389,7 +390,7 @@ It is a curriculum designed to align with international music, classical music, 
     </div>
   </div>
 </section>
-
+<Footer/>
     </div>
   );
 }

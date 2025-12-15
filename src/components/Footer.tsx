@@ -56,4 +56,8 @@ export default function Footer() {
       </p>
     </footer>
   );
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> sravanti-frontend
