@@ -1,393 +1,124 @@
 "use client";
 
-import React, { useState } from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { FiChevronDown } from "react-icons/fi";
+import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer";
+import Image from "next/image";
 
-export default function VisionAndValuesPage() {
-  // Mobile Menu
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  // Dropdown states
-  const [aboutOpen, setAboutOpen] = useState(false);
-  const [academicsOpen, setAcademicsOpen] = useState(false);
-  const [lifeOpen, setLifeOpen] = useState(false);
-  const [admissionsOpen, setAdmissionsOpen] = useState(false);
-
-  const activePage = "vision-values";
-
-  // Dropdown Items
-  const aboutDropdownItems = [
-    { title: "Vision & Values", href: "/about/vision", key: "vision-values" },
-    { title: "Our Philosophy", href: "/about/philosophy", key: "philosophy" },
-    
-    { title: "Our People", href: "/about/people", key: "people" },
-  ];
-
-  const academicsDropdown = [
-    {title:"PrePrimary",href:"/academics/preprimary"},
-    { title: "Primary", href: "/academics/primary" },
-    { title: "Middle", href: "/academics/middle" },
-    { title: "High", href: "/academics/high" },
-  ];
-
-  const lifeDropdown = [
-    { title: "Beyond Academics", href: "/life/beyondacademics" },
-    
-  ];
-
-  const admissionsDropdown = [
-    { title: "Admissions", href: "/admissions/process" },
-    { title: "Fee Structure", href: "/admissions/fees" },
-    { title: "Apply Now", href: "/admissions/apply" },
-  ];
-
+export default function VisionPage() {
   return (
-    <div className="bg-gray-50 min-h-screen">
+    <>
+      {/* HEADER */}
+      <Header />
 
       {/* HERO SECTION */}
       <section className="relative bg-[#313e3b] text-white min-h-[80vh] py-16 px-6 md:px-16">
+        <div className="max-w-6xl mx-auto mt-36">
 
+  <h1 className="text-4xl md:text-3xl font-bold">
+    Vision & Values
+  </h1>
+  <p className="text-lg md:text-xl mt-4 max-w-3xl">
+    Shaping young minds with integrity, excellence, and purpose.
+  </p>
+</div>
+      </section>
 
-        {/* HEADER */}
-        <div className="flex justify-between items-center mb-12 relative">
+      {/* CONTENT SECTION */}
+      <section className="bg-white py-20 px-6 md:px-16">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
 
-          {/* LOGO */}
-          <Link href="/">
-          <Image
-            src="/logo.jpg"
-            alt="School Logo"
-            width={150}
-            height={60}
-            className="cursor-pointer"
-          />
-          </Link>
+          {/* LEFT IMAGE */}
+          <div className="relative w-full h-[380px] rounded-xl overflow-hidden shadow-lg">
+            <Image
+              src="/genesis.jpg"   
+              alt="Our Vision"
+              fill
+              className="object-cover"
+            />
+          </div>
 
-          {/* DESKTOP MENU */}
-          <ul className="hidden md:flex gap-8 text-lg font-medium items-center">
-
-            {/* ABOUT US */}
-            <li
-              className="relative group cursor-pointer"
-              onMouseEnter={() => setAboutOpen(true)}
-              onMouseLeave={() => setAboutOpen(false)}
-            >
-              <span className="flex items-center gap-1 text-orange-500">
-                About Us <FiChevronDown />
-              </span>
-
-              {aboutOpen && (
-                <ul className="absolute left-0 mt-2 w-56 bg-white text-black rounded-md shadow-lg py-2 z-50">
-                  {aboutDropdownItems.map((dd) => (
-                    <li key={dd.key}>
-                      {activePage === dd.key ? (
-                        <span className="block px-4 py-2 bg-orange-50 text-orange-500 font-semibold cursor-default">
-                          {dd.title}
-                        </span>
-                      ) : (
-                        <Link href={dd.href} className="block px-4 py-2 hover:bg-gray-200">
-                          {dd.title}
-                        </Link>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </li>
-
-            {/* ACADEMICS */}
-            <li
-              className="relative group cursor-pointer"
-              onMouseEnter={() => setAcademicsOpen(true)}
-              onMouseLeave={() => setAcademicsOpen(false)}
-            >
-              <span className="flex items-center gap-1 hover:text-orange-400">
-                Academics <FiChevronDown />
-              </span>
-
-              {academicsOpen && (
-                <ul className="absolute left-0 mt-2 w-52 bg-white text-black rounded-md shadow-lg py-2 z-50">
-                  {academicsDropdown.map((item) => (
-                    <li key={item.title}>
-                      <Link href={item.href} className="block px-4 py-2 hover:bg-gray-200">
-                        {item.title}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </li>
-
-            {/* ABODE LIFE */}
-            <li
-              className="relative group cursor-pointer"
-              onMouseEnter={() => setLifeOpen(true)}
-              onMouseLeave={() => setLifeOpen(false)}
-            >
-              <span className="flex items-center gap-1 hover:text-orange-400">
-                ABODE Life <FiChevronDown />
-              </span>
-
-              {lifeOpen && (
-                <ul className="absolute left-0 mt-2 w-48 bg-white text-black rounded-md shadow-lg py-2 z-50">
-                  {lifeDropdown.map((item) => (
-                    <li key={item.title}>
-                      <Link href={item.href} className="block px-4 py-2 hover:bg-gray-200">
-                        {item.title}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </li>
-
-            {/* ADMISSIONS */}
-            <li
-              className="relative group cursor-pointer"
-              onMouseEnter={() => setAdmissionsOpen(true)}
-              onMouseLeave={() => setAdmissionsOpen(false)}
-            >
-              <span className="flex items-center gap-1 hover:text-orange-400">
-                Admissions <FiChevronDown />
-              </span>
-
-              {admissionsOpen && (
-                <ul className="absolute left-0 mt-2 w-56 bg-white text-black rounded-md shadow-lg py-2 z-50">
-                  {admissionsDropdown.map((item) => (
-                    <li key={item.title}>
-                      <Link href={item.href} className="block px-4 py-2 hover:bg-gray-200">
-                        {item.title}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </li>
-
-            <li><Link href="/gallery" className="hover:text-orange-400">Gallery</Link></li>
-          </ul>
-
-          {/* VISIT US BTN */}
-          <Link
-            href="/visit-us"
-            className="hidden md:block bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-full"
-          >
-            Visit Us
-          </Link>
-
-          {/* MOBILE ICON */}
-          <button className="md:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-            <div className="w-6 h-0.5 bg-white mb-1"></div>
-            <div className="w-6 h-0.5 bg-white mb-1"></div>
-            <div className="w-6 h-0.5 bg-white"></div>
-          </button>
+          {/* RIGHT CONTENT */}
+          <div>
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">
+              Our Vision
+            </h2>
+            <p className="text-gray-600 leading-relaxed mb-4">
+              At Genesis School, our vision is to nurture confident, compassionate,
+              and curious learners who are prepared to thrive in a rapidly
+              evolving global society.
+            </p>
+            <p className="text-gray-600 leading-relaxed">
+              We aim to create an inclusive learning environment that encourages
+              critical thinking, creativity, and lifelong learning, while
+              upholding strong moral and ethical values.
+            </p>
+          </div>
         </div>
+      </section>
 
-       {/* MOBILE MENU */}
-{mobileMenuOpen && (
-  <ul className="md:hidden bg-[#313e3b] p-6 rounded-lg space-y-4">
+      {/* VALUES FLOWCHART SECTION */}
+<section className="bg-gray-50 py-20 px-6 md:px-16">
+  <div className="max-w-6xl mx-auto">
+    <h2 className="text-3xl font-bold text-gray-800 text-center mb-16">
+      Our Core Values
+    </h2>
 
-    {/* HOME LINK */}
-    <li>
-      <Link
-        href="/"
-        className="block px-4 py-2 text-white hover:text-orange-400 font-semibold"
-      >
-        Home
-      </Link>
-    </li>
+    <div className="relative max-w-4xl mx-auto">
 
-            {/* ABOUT US MOBILE */}
-<li>
-  <button
-    onClick={() => setAboutOpen(!aboutOpen)}
-    className="flex items-center gap-1 text-orange-400 font-semibold"
-  >
-    About Us <FiChevronDown />
-  </button>
+      {/* CENTER LINE */}
+      <div className="absolute left-1/2 top-0 h-full w-[2px] bg-gray-300 transform -translate-x-1/2 hidden md:block"></div>
 
-  {aboutOpen && (
-    <ul className="ml-4 mt-2 space-y-2">
-      {aboutDropdownItems.map((dd) => (
-        <li key={dd.key}>
+      {[
+        {
+          title: "Integrity",
+          desc: "Upholding honesty, transparency, and ethical conduct in all actions.",
+        },
+        {
+          title: "Excellence",
+          desc: "Striving for the highest standards in academics and personal growth.",
+        },
+        {
+          title: "Innovation",
+          desc: "Encouraging creative thinking and adaptability in a changing world.",
+        },
+        {
+          title: "Collaboration",
+          desc: "Building strong relationships through teamwork and respect.",
+        },
+        {
+          title: "Leadership",
+          desc: "Empowering students to lead with confidence and responsibility.",
+        },
+      ].map((item, index) => (
+        <div
+          key={index}
+          className={`relative flex flex-col md:flex-row items-center mb-16 ${
+            index % 2 === 0 ? "md:flex-row-reverse" : ""
+          }`}
+        >
+          {/* VALUE BOX */}
+          <div className="bg-white shadow-md rounded-xl p-6 w-full md:w-[45%]">
+            <h3 className="text-xl font-semibold text-gray-800 mb-2">
+              {item.title}
+            </h3>
+            <p className="text-gray-600 text-sm leading-relaxed">
+              {item.desc}
+            </p>
+          </div>
 
-          {activePage === dd.key ? (
-            <span className="block px-4 py-2 text-orange-400 font-semibold">
-              {dd.title}
-            </span>
-          ) : (
-            <Link
-              href={dd.href}
-              className="block px-4 py-2 text-white hover:text-orange-400"
-            >
-              {dd.title}
-            </Link>
-          )}
-
-        </li>
+          {/* CONNECTOR DOT */}
+          <div className="hidden md:flex w-[10%] justify-center">
+            <span className="w-4 h-4 bg-orange-500 rounded-full border-4 border-white shadow"></span>
+          </div>
+        </div>
       ))}
-    </ul>
-  )}
-</li>
-
-
-            {/* ACADEMICS MOBILE */}
-            <li>
-              <button
-                onClick={() => setAcademicsOpen(!academicsOpen)}
-                className="flex items-center gap-1 text-white"
-              >
-                Academics <FiChevronDown />
-              </button>
-
-              {academicsOpen && (
-                <ul className="ml-4 mt-2 space-y-2">
-                  {academicsDropdown.map((item) => (
-                    <li key={item.title}>
-                      <Link href={item.href} className="text-white block hover:text-orange-400">
-                        {item.title}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </li>
-
-            {/* LIFE MOBILE */}
-            <li>
-              <button
-                onClick={() => setLifeOpen(!lifeOpen)}
-                className="flex items-center gap-1 text-white"
-              >
-                ABODE Life <FiChevronDown />
-              </button>
-
-              {lifeOpen && (
-                <ul className="ml-4 mt-2 space-y-2">
-                  {lifeDropdown.map((item) => (
-                    <li key={item.title}>
-                      <Link href={item.href} className="text-white block hover:text-orange-400">
-                        {item.title}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </li>
-
-            {/* ADMISSIONS MOBILE */}
-            <li>
-              <button
-                onClick={() => setAdmissionsOpen(!admissionsOpen)}
-                className="flex items-center gap-1 text-white"
-              >
-                Admissions <FiChevronDown />
-              </button>
-
-              {admissionsOpen && (
-                <ul className="ml-4 mt-2 space-y-2">
-                  {admissionsDropdown.map((item) => (
-                    <li key={item.title}>
-                      <Link href={item.href} className="text-white block hover:text-orange-400">
-                        {item.title}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </li>
-            {/*Gallery*/}
-            <Link href="/gallery" className="block hover:text-orange-400">
-            Gallery
-          </Link>
-            {/* MOBILE VISIT US */}
-            <li>
-              <Link
-                href="/visit-us"
-                className="block bg-orange-500 text-white py-2 rounded-full text-center"
-              >
-                Visit Us
-              </Link>
-            </li>
-          </ul>
-        )}
-
-        {/* HERO TEXT */}
-        <div className="mt-10 max-w-3xl">
-          <h1 className="text-4xl md:text-5xl font-bold">Our Vision & Values</h1>
-          <p className="text-lg md:text-xl mt-2">
-            About us: Our Vision & Values
-          </p>
-        </div>
-      </section>
-
-      {/* CONTENT */}
-      <section className="max-w-6xl mx-auto px-6 md:px-16 py-16">
-        <h2 className="text-3xl font-bold text-green-900 mb-4">Our Vision</h2>
-        <p className="text-gray-700 text-lg mb-10">
-          At <strong>Genesis International School</strong>, our vision is to cultivate a nurturing and supportive environment where every student feels a deep sense of belonging. We empower children to grow fearlessly, develop confidence, and extend support to others as they learn and lead.
-
-           We are dedicated to shaping confident, compassionate, and responsible leaders who are prepared to make a meaningful and positive impact on the world.
-        </p>
-
-        <h2 className="text-3xl font-bold text-green-900 mb-12 text-center">
-  Our Values
-</h2>
-        <div className="relative max-w-4xl mx-auto">
-           {/* Vertical Line */}
-  <div className="absolute left-1/2 top-0 h-full w-1 bg-green-200 transform -translate-x-1/2 hidden md:block"></div>
-
-  {[
-    {
-      title: "Curiosity",
-      desc: "Inspiring a love for learning and inquiry.",
-    },
-    {
-      title: "Creativity",
-      desc: "Encouraging innovation and original thinking.",
-    },
-    {
-      title: "Collaboration",
-      desc: "Fostering teamwork and collective problem-solving.",
-    },
-    {
-      title: "Character & Excellence",
-      desc: "Building integrity, resilience, and a pursuit of excellence.",
-    },
-    {
-      title: "Leadership & Global Citizenship",
-      desc: "Developing responsible leaders with a global perspective.",
-    },
-    {
-      title: "Community",
-      desc: "Strengthening connections and inclusivity within and beyond the school.",
-    },
-  ].map((item, index) => (
-    <div
-      key={index}
-      className={`relative flex flex-col md:flex-row items-center mb-12 ${
-        index % 2 === 0 ? "md:flex-row-reverse" : ""
-      }`}
-    >
-      {/* Content Box */}
-      <div className="bg-white shadow-lg rounded-xl p-6 w-full md:w-[45%]">
-        <h3 className="text-xl font-semibold text-green-800 mb-2">
-          {item.title}
-        </h3>
-        <p className="text-gray-700">{item.desc}</p>
-      </div>
-      {/* Dot */}
-      <div className="hidden md:flex w-[10%] justify-center">
-        <span className="w-5 h-5 bg-green-700 rounded-full border-4 border-white shadow-md"></span>
-      </div>
-              </div>
-            ))}
-        </div>
-      </section>
-      <Footer/>
     </div>
+  </div>
+</section>
 
+
+      {/* FOOTER */}
+      <Footer />
+    </>
   );
 }

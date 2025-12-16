@@ -34,7 +34,7 @@ export const headerMenu = [
     ],
   },
   { title: "Gallery", href: "/gallery" },
-  { title: "Mandatory Public Disclosure", href: "/disclosure" },
+ 
   
 
 

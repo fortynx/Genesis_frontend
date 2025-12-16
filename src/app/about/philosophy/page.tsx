@@ -1,396 +1,93 @@
 "use client";
 
-import React, { useState } from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { FiChevronDown } from "react-icons/fi";
+import React from "react";
 import Footer from "@/components/Footer";
+import Header from "@/components/Header/Header"; // ✅ Import your updated Header
 
 export default function PhilosophyPage() {
-  // Mobile Menu
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  // Dropdown states
-  const [aboutOpen, setAboutOpen] = useState(false);
-  const [academicsOpen, setAcademicsOpen] = useState(false);
-  const [lifeOpen, setLifeOpen] = useState(false);
-  const [admissionsOpen, setAdmissionsOpen] = useState(false);
-
-  const activePage = "philosophy";
-  const philosophies = [
-    { title: "Montessori", description: "Child-centered, curiosity-based    learning." },
-    { title: "Multiple Intelligence", description: "Support for diverse talents." },
-    { title: "Higher Intelligence", description: "Critical thinking & problem solving." },
-  ];
-
-  // Dropdown Items
-  const aboutDropdownItems = [
-    { title: "Vision & Values", href: "/about/vision", key: "vision-values" },
-    { title: "Our Philosophy", href: "/about/philosophy", key: "philosophy" },
-    
-    { title: "Our People", href: "/about/people", key: "people" },
-  ];
-
-  const academicsDropdown = [
-    {title:"PrePrimary",href:"/academics/preprimary"},
-    { title: "Primary", href: "/academics/primary" },
-    { title: "Middle", href: "/academics/middle" },
-    { title: "High", href: "/academics/high" },
-  ];
-
-  const lifeDropdown = [
-    { title: "Beyond Academics", href: "/life/beyondacademics" },
-    
-  ];
-
-  const admissionsDropdown = [
-    { title: "Admissions", href: "/admissions/process" },
-    { title: "Fee Structure", href: "/admissions/fees" },
-    { title: "Apply Now", href: "/admissions/apply" },
-  ];
-
   return (
-    <div className="bg-gray-50 min-h-screen">
-
-      {/* HERO SECTION */}
-      <section className="relative bg-[#313e3b] text-white min-h-[80vh] py-16 px-6 md:px-16">
+    <>
+      <div className="bg-gray-50 min-h-screen">
 
         {/* HEADER */}
-        <div className="flex justify-between items-center mb-12 relative">
+        <Header /> {/* ✅ Use Header here */}
 
-          {/* LOGO */}
-          <Link href="/">
-          <Image
-            src="/logo.jpg"
-            alt="School Logo"
-            width={150}
-            height={60}
-            className="cursor-pointer"
-          />
-          </Link>
+        {/* HERO SECTION */}
+        <section className="relative bg-[#313e3b] text-white min-h-[80vh] py-16 px-6 md:px-16">
+          <div className="max-w-6xl mx-auto mt-36">
+            <h1 className="text-4xl md:text-3xl font-bold">Our Philosophy</h1>
+            <p className="text-lg md:text-xl mt-2">
+              About us: Our Philosophy
+            </p>
+          </div>
+        </section>
 
-          {/* DESKTOP MENU */}
-          <ul className="hidden md:flex gap-8 text-lg font-medium items-center">
+        {/* CONTENT SECTION */}
+        <section className="max-w-6xl mx-auto px-6 md:px-16 py-16">
+          <h2 className="text-3xl font-bold text-green-900 mb-12">Core Philosophies</h2>
 
-            {/* ABOUT US */}
-            <li
-              className="relative group cursor-pointer"
-              onMouseEnter={() => setAboutOpen(true)}
-              onMouseLeave={() => setAboutOpen(false)}
-            >
-              <span className="flex items-center gap-1 text-orange-500">
-                About Us <FiChevronDown />
-              </span>
+          <div className="flex flex-col gap-12">
+            {/* Montessori */}
+            <div className="flex flex-col md:flex-row bg-white rounded-xl shadow-lg hover:shadow-2xl overflow-hidden">
+              <div className="md:w-1/3">
+                <img
+                  src="/montesory.jpg"
+                  alt="Montessori"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="md:w-2/3 p-6 flex flex-col justify-center">
+                <h3 className="text-xl font-semibold text-green-800 mb-2">Montessori</h3>
+                <p className="text-gray-700">
+                  Dr. Maria Montessori founded the Montessori method in the early 1900s. Her scientific approach to education was shaped around the individual needs of the child. The goal was to develop the child and their whole personality.
 
-              {aboutOpen && (
-                <ul className="absolute left-0 mt-2 w-56 bg-white text-black rounded-md shadow-lg py-2 z-50">
-                  {aboutDropdownItems.map((dd) => (
-                    <li key={dd.key}>
-                      {activePage === dd.key ? (
-                        <span className="block px-4 py-2 bg-orange-50 text-orange-500 font-semibold cursor-default">
-                          {dd.title}
-                        </span>
-                      ) : (
-                        <Link href={dd.href} className="block px-4 py-2 hover:bg-gray-200">
-                          {dd.title}
-                        </Link>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </li>
+                  Built on three primary principles – observation, individual freedom, and preparation of the environment – Montessori classroom is designed as an environment where children could freely choose from a number of developmentally appropriate activities.
+                </p>
+              </div>
+            </div>
 
-            {/* ACADEMICS */}
-            <li
-              className="relative group cursor-pointer"
-              onMouseEnter={() => setAcademicsOpen(true)}
-              onMouseLeave={() => setAcademicsOpen(false)}
-            >
-              <span className="flex items-center gap-1 hover:text-orange-400">
-                Academics <FiChevronDown />
-              </span>
+            {/* Multiple Intelligence */}
+            <div className="flex flex-col md:flex-row bg-white rounded-xl shadow-lg hover:shadow-2xl overflow-hidden">
+              <div className="md:w-1/3">
+                <img
+                  src="/multipleinteligence.jpg"
+                  alt="Multiple Intelligence"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="md:w-2/3 p-6 flex flex-col justify-center">
+                <h3 className="text-xl font-semibold text-green-800 mb-2">Multiple Intelligence</h3>
+                <p className="text-gray-700">
+                  Genesis believes in multiple intelligences theory. Every child is exposed to a broad list of activities to identify their dominant intelligence in our school. MI theory suggests that no one set of teaching strategies will work best for all students at all times. All children have different proclivities in the eight intelligences, so any particular strategy is likely to be successful with several students, and yet, not for others.
 
-              {academicsOpen && (
-                <ul className="absolute left-0 mt-2 w-52 bg-white text-black rounded-md shadow-lg py-2 z-50">
-                  {academicsDropdown.map((item) => (
-                    <li key={item.title}>
-                      <Link href={item.href} className="block px-4 py-2 hover:bg-gray-200">
-                        {item.title}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </li>
+                  Our MI program allows the child to explore different intelligence’s until 6/7 years of age. The curriculum is designed to align with international music, classical music, dance, gymnastics, art, and kinetics programs.
+                </p>
+              </div>
+            </div>
 
-            {/* ABODE LIFE */}
-            <li
-              className="relative group cursor-pointer"
-              onMouseEnter={() => setLifeOpen(true)}
-              onMouseLeave={() => setLifeOpen(false)}
-            >
-              <span className="flex items-center gap-1 hover:text-orange-400">
-                ABODE Life <FiChevronDown />
-              </span>
+            {/* Higher Intelligence */}
+            <div className="flex flex-col md:flex-row bg-white rounded-xl shadow-lg hover:shadow-2xl overflow-hidden">
+              <div className="md:w-1/3">
+                <img
+                  src="/higherinteligence.jpg"
+                  alt="Higher Intelligence"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="md:w-2/3 p-6 flex flex-col justify-center">
+                <h3 className="text-xl font-semibold text-green-800 mb-2">Higher Intelligence</h3>
+                <p className="text-gray-700">
+                  In Genesis, after 6-7 years of age, each child is identified with their higher or dominant Intelligence (HI). They are then encouraged to pursue that stream to a higher level. The programs are created to span a period of 10 years. Each child spends long periods of time on a regular basis to kindle the HI element in them & find their inner joy.
 
-              {lifeOpen && (
-                <ul className="absolute left-0 mt-2 w-48 bg-white text-black rounded-md shadow-lg py-2 z-50">
-                  {lifeDropdown.map((item) => (
-                    <li key={item.title}>
-                      <Link href={item.href} className="block px-4 py-2 hover:bg-gray-200">
-                        {item.title}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </li>
+                  It is a curriculum designed to align with international music, classical music, dance, gymnastics, art, and kinetics programs.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
 
-            {/* ADMISSIONS */}
-            <li
-              className="relative group cursor-pointer"
-              onMouseEnter={() => setAdmissionsOpen(true)}
-              onMouseLeave={() => setAdmissionsOpen(false)}
-            >
-              <span className="flex items-center gap-1 hover:text-orange-400">
-                Admissions <FiChevronDown />
-              </span>
-
-              {admissionsOpen && (
-                <ul className="absolute left-0 mt-2 w-56 bg-white text-black rounded-md shadow-lg py-2 z-50">
-                  {admissionsDropdown.map((item) => (
-                    <li key={item.title}>
-                      <Link href={item.href} className="block px-4 py-2 hover:bg-gray-200">
-                        {item.title}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </li>
-
-            <li><Link href="/gallery" className="hover:text-orange-400">Gallery</Link></li>
-          </ul>
-
-          {/* VISIT US BTN */}
-          <Link
-            href="/visit-us"
-            className="hidden md:block bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-full"
-          >
-            Visit Us
-          </Link>
-
-          {/* MOBILE ICON */}
-          <button className="md:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-            <div className="w-6 h-0.5 bg-white mb-1"></div>
-            <div className="w-6 h-0.5 bg-white mb-1"></div>
-            <div className="w-6 h-0.5 bg-white"></div>
-          </button>
-        </div>
-
-        {/* MOBILE MENU */}
-        {mobileMenuOpen && (
-          <ul className="md:hidden bg-[#313e3b] p-6 rounded-lg space-y-4">
-            {/* HOME LINK */}
-    <li>
-      <Link
-        href="/"
-        className="block px-4 py-2 text-white hover:text-orange-400 font-semibold"
-      >
-        Home
-      </Link>
-    </li>
-
-            {/* ABOUT US MOBILE */}
-<li>
-  <button
-    onClick={() => setAboutOpen(!aboutOpen)}
-    className="flex items-center gap-1 text-orange-400 font-semibold"
-  >
-    About Us <FiChevronDown />
-  </button>
-
-  {aboutOpen && (
-    <ul className="ml-4 mt-2 space-y-2">
-      {aboutDropdownItems.map((dd) => (
-        <li key={dd.key}>
-
-          {activePage === dd.key ? (
-            <span className="block px-4 py-2 text-orange-400 font-semibold">
-              {dd.title}
-            </span>
-          ) : (
-            <Link
-              href={dd.href}
-              className="block px-4 py-2 text-white hover:text-orange-400"
-            >
-              {dd.title}
-            </Link>
-          )}
-
-        </li>
-      ))}
-    </ul>
-  )}
-</li>
-
-
-            {/* ACADEMICS MOBILE */}
-            <li>
-              <button
-                onClick={() => setAcademicsOpen(!academicsOpen)}
-                className="flex items-center gap-1 text-white"
-              >
-                Academics <FiChevronDown />
-              </button>
-
-              {academicsOpen && (
-                <ul className="ml-4 mt-2 space-y-2">
-                  {academicsDropdown.map((item) => (
-                    <li key={item.title}>
-                      <Link href={item.href} className="text-white block hover:text-orange-400">
-                        {item.title}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </li>
-
-            {/* LIFE MOBILE */}
-            <li>
-              <button
-                onClick={() => setLifeOpen(!lifeOpen)}
-                className="flex items-center gap-1 text-white"
-              >
-                ABODE Life <FiChevronDown />
-              </button>
-
-              {lifeOpen && (
-                <ul className="ml-4 mt-2 space-y-2">
-                  {lifeDropdown.map((item) => (
-                    <li key={item.title}>
-                      <Link href={item.href} className="text-white block hover:text-orange-400">
-                        {item.title}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </li>
-
-            {/* ADMISSIONS MOBILE */}
-            <li>
-              <button
-                onClick={() => setAdmissionsOpen(!admissionsOpen)}
-                className="flex items-center gap-1 text-white"
-              >
-                Admissions <FiChevronDown />
-              </button>
-
-              {admissionsOpen && (
-                <ul className="ml-4 mt-2 space-y-2">
-                  {admissionsDropdown.map((item) => (
-                    <li key={item.title}>
-                      <Link href={item.href} className="text-white block hover:text-orange-400">
-                        {item.title}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </li>
-            {/*Gallery*/}
-            <Link href="/gallery" className="block hover:text-orange-400">
-            Gallery
-          </Link>
-
-            {/* MOBILE VISIT US */}
-            <li>
-              <Link
-                href="/visit-us"
-                className="block bg-orange-500 text-white py-2 rounded-full text-center"
-              >
-                Visit Us
-              </Link>
-            </li>
-          </ul>
-        )}
-
-        {/* HERO TEXT */}
-        <div className="mt-10 max-w-3xl">
-          <h1 className="text-4xl md:text-5xl font-bold">Our Philosophy</h1>
-          <p className="text-lg md:text-xl mt-2">
-            About us: Our Philosophy
-          </p>
-        </div>
-      </section>
-
-      {/* CONTENT SECTION */}
-<section className="max-w-6xl mx-auto px-6 md:px-16 py-16">
-  <h2 className="text-3xl font-bold text-green-900 mb-12">Core Philosophies</h2>
-
-  <div className="flex flex-col gap-12">
-    {/* Montessori */}
-    <div className="flex flex-col md:flex-row bg-white rounded-xl shadow-lg hover:shadow-2xl overflow-hidden">
-      <div className="md:w-1/3">
-        <img
-          src="/montesory.jpg"
-          alt="Montessori"
-          className="w-full h-full object-cover"
-        />
+        <Footer />
       </div>
-      <div className="md:w-2/3 p-6 flex flex-col justify-center">
-        <h3 className="text-xl font-semibold text-green-800 mb-2">Montessori</h3>
-        <p className="text-gray-700">
-          Dr. Maria Montessori founded the Montessori method in the early 1900s. Her scientific approach to education was shaped around the individual needs of the child. The goal was to develop the child and their whole personality.
-
-Built on three primary principles – observation, individual freedom, and preparation of the environment – Montessori classroom is designed as an environment where children could freely choose from a number of developmentally appropriate activities.
-        </p>
-      </div>
-    </div>
-
-    {/* Multiple Intelligence */}
-    <div className="flex flex-col md:flex-row bg-white rounded-xl shadow-lg hover:shadow-2xl overflow-hidden">
-      <div className="md:w-1/3">
-        <img
-          src="/multipleinteligence.jpg"
-          alt="Multiple Intelligence"
-          className="w-full h-full object-cover"
-        />
-      </div>
-      <div className="md:w-2/3 p-6 flex flex-col justify-center">
-        <h3 className="text-xl font-semibold text-green-800 mb-2">Multiple Intelligence</h3>
-        <p className="text-gray-700">
-          Genesis believes in multiple intelligences theory. Every child is exposed to a broad list of activities to identify their dominant intelligence in our school. MI theory suggests that no one set of teaching strategies will work best for all students at all times. All children have different proclivities in the eight intelligences, so any particular strategy is likely to be successful with several students, and yet, not for others.
-
-Our MI program allows the child to explore different intelligence’s until 6/7 years of age. The curriculum is designed to align with international music, classical music, dance, gymnastics, art, and kinetics programs.
-        </p>
-      </div>
-    </div>
-
-    {/* Higher Intelligence */}
-    <div className="flex flex-col md:flex-row bg-white rounded-xl shadow-lg hover:shadow-2xl overflow-hidden">
-      <div className="md:w-1/3">
-        <img
-          src="/higherinteligence.jpg"
-          alt="Higher Intelligence"
-          className="w-full h-full object-cover"
-        />
-      </div>
-      <div className="md:w-2/3 p-6 flex flex-col justify-center">
-        <h3 className="text-xl font-semibold text-green-800 mb-2">Higher Intelligence</h3>
-        <p className="text-gray-700">
-          In Genesis, after 6-7 years of age, each child is identified with their higher or dominant Intelligence (HI). They are then encouraged to pursue that stream to a higher level. The programs are created to span a period of 10 years. Each child spends long periods of time on a regular basis to kindle the HI element in them & find their inner joy.
-
-It is a curriculum designed to align with international music, classical music, dance, gymnastics, art, and kinetics programs.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-<Footer/>
-    </div>
+    </>
   );
 }
