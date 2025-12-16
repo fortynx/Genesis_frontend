@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { headerMenu } from "./MenuData";
@@ -9,12 +9,24 @@ import { FiChevronDown } from "react-icons/fi";
 export default function Header() {
   const [sticky, setSticky] = useState(false);
   const [openMenu, setOpenMenu] = useState<number | null>(null);
+  const closeTimeout = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const handleScroll = () => setSticky(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleMouseEnter = (index: number) => {
+    if (closeTimeout.current) clearTimeout(closeTimeout.current);
+    setOpenMenu(index);
+  };
+
+  const handleMouseLeave = () => {
+    closeTimeout.current = setTimeout(() => {
+      setOpenMenu(null);
+    }, 400); // ⏱️ hover delay (increase/decrease here)
+  };
 
   return (
     <header
@@ -31,7 +43,7 @@ export default function Header() {
             alt="School Logo"
             width={150}
             height={70}
-            className={`${sticky ? "" : "brightness-200"}`}
+            className={sticky ? "" : "brightness-200"}
           />
         </Link>
 
@@ -40,9 +52,9 @@ export default function Header() {
           {headerMenu.map((item, index) => (
             <div
               key={index}
-              className="relative flex flex-col"
-              onMouseEnter={() => setOpenMenu(index)}  // ⭐ Open dropdown on hover
-              onMouseLeave={() => setOpenMenu(null)}   // ⭐ Close when moving cursor
+              className="relative"
+              onMouseEnter={() => handleMouseEnter(index)}
+              onMouseLeave={handleMouseLeave}
             >
               {/* Parent Menu Item */}
               <span className="cursor-pointer flex items-center gap-1 hover:text-orange-500 transition">
@@ -52,7 +64,9 @@ export default function Header() {
                     <FiChevronDown
                       size={18}
                       className={`transition ${
-                        openMenu === index ? "rotate-180 text-orange-500" : ""
+                        openMenu === index
+                          ? "rotate-180 text-orange-500"
+                          : ""
                       }`}
                     />
                   </>
@@ -64,6 +78,11 @@ export default function Header() {
               {/* DROPDOWN */}
               {item.children && openMenu === index && (
                 <div
+                  onMouseEnter={() => {
+                    if (closeTimeout.current)
+                      clearTimeout(closeTimeout.current);
+                  }}
+                  onMouseLeave={handleMouseLeave}
                   className="
                     absolute left-0 top-8
                     bg-[#436873] text-white
