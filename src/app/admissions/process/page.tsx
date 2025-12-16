@@ -4,16 +4,11 @@ import React, { useState } from "react";
 
 import Footer from "@/components/Footer";
 import Header from "@/components/Header/Header";
+import Breadcrumb from "@/components/Breadcrumb";
+
 
 
 export default function AdmissionProcessPage() {
-  
-
-
-  
-
- 
-
   return (
     <div className="bg-gray-50 min-h-screen">
       {/* HERO */}
@@ -29,7 +24,8 @@ export default function AdmissionProcessPage() {
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Admissions 
           </h1>
-          
+          {/* Breadcrumb (RIGHT AFTER HEADING) */}
+                    <Breadcrumb />
         </div>
       </section>
 

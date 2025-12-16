@@ -150,16 +150,37 @@ export default function Header() {
       {/* MOBILE MENU */}
       {mobileOpen && (
         <div className="md:hidden bg-[#313e3b] text-white px-6 py-6 space-y-4">
+              {/* HOME LINK */}
+    <Link
+  href="/"
+  onClick={() => setMobileOpen(false)}
+  className="block px-4 py-2 text-white hover:text-orange-400 font-semibold"
+>
+  Home
+</Link>
+
           {headerMenu.map((item, i) => (
             <div key={i}>
               {item.children ? (
                 <>
-                  <button
-                    className="flex items-center gap-2 font-semibold"
-                    onClick={() => setOpenMenu(openMenu === i ? null : i)}
-                  >
-                    {item.title} <FiChevronDown />
-                  </button>
+                 <button
+  className={`flex items-center gap-2 font-semibold transition
+    ${
+      openMenu === i || isActive(item)
+        ? "text-orange-400"
+        : "text-white hover:text-orange-400"
+    }
+  `}
+  onClick={() => setOpenMenu(openMenu === i ? null : i)}
+>
+  {item.title}
+  <FiChevronDown
+    className={`transition-transform ${
+      openMenu === i ? "rotate-180 text-orange-400" : ""
+    }`}
+  />
+</button>
+
 
                   {openMenu === i && (
                     <div className="ml-4 mt-2 space-y-2">

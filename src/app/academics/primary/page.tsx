@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Breadcrumb from "@/components/Breadcrumb";
 
 import Footer from "@/components/Footer";
 import Header from "@/components/Header/Header";
@@ -20,6 +21,8 @@ export default function PrimaryPage() {
         {/* HERO TEXT */}
         <div className="max-w-6xl mx-auto mt-36">
           <h1 className="text-4xl md:text-5xl font-bold">Primary School</h1>
+          {/* Breadcrumb (RIGHT AFTER HEADING) */}
+                    <Breadcrumb />
           <p className="text-lg md:text-xl mt-2">Academics: Primary</p>
         </div>
       </section>

@@ -4,6 +4,7 @@ import React, { useState } from "react";
 
 import Footer from "@/components/Footer";
 import Header from "@/components/Header/Header";
+import Breadcrumb from "@/components/Breadcrumb";
 
 
 export default function BeyondAcademicsPage() {
@@ -18,7 +19,9 @@ export default function BeyondAcademicsPage() {
 
         {/* HERO TEXT */}
         <div className="max-w-6xl mx-auto mt-36">
-          <h1 className="text-4xl md:text-5xl font-bold">ABODE Life</h1>
+          <h1 className="text-4xl md:text-5xl font-bold">Genesis Life</h1>
+          {/* Breadcrumb (RIGHT AFTER HEADING) */}
+                    <Breadcrumb />
           <p className="text-lg md:text-xl mt-2">Beyond-Academics</p>
         </div>
       </section>

@@ -3,6 +3,8 @@
 import React from "react";
 import Header from "@/components/Header/Header"; // ✅ Use updated Header
 import Footer from "@/components/Footer";
+import Breadcrumb from "@/components/Breadcrumb";
+
 
 export default function PrePrimaryPage() {
   return (
@@ -13,7 +15,9 @@ export default function PrePrimaryPage() {
       {/* HERO SECTION */}
       <section className="relative bg-[#313e3b] text-white min-h-[80vh] py-16 px-6 md:px-16">
         <div className="max-w-6xl mx-auto mt-36">
-          <h1 className="text-4xl md:text-5xl font-bold">Pre-Primary</h1>
+          <h1 className="text-4xl md:text-5xl font-bold">PrePrimary School</h1>
+          {/* Breadcrumb (RIGHT AFTER HEADING) */}
+                    <Breadcrumb />
           <p className="text-lg md:text-xl mt-2">
             Early childhood learning program focusing on holistic development.
           </p>
@@ -89,7 +93,7 @@ export default function PrePrimaryPage() {
 
           {/* Enrichment (Image Right) */} <div className="flex flex-col md:flex-row-reverse bg-white rounded-xl shadow-lg hover:shadow-2xl overflow-hidden"> <div className="md:w-1/3"> <img src="/enrichment.jpg" alt="Enrichment" className="w-full h-full object-cover" /> </div> <div className="md:w-2/3 p-6 flex flex-col justify-center"> <h3 className="text-xl font-semibold text-green-800 mb-2">Enrichment</h3> <p className="text-gray-700"> Our Enrichment Program in Preschool gives students experience in a variety of activities, supporting personal growth. </p> <ul className="list-disc pl-5 mt-2 text-gray-700 space-y-1"> <li><strong>Music:</strong> Rhythm, melody, and Carnatic vocal exercises.</li> <li><strong>Dance:</strong> Creative movement, coordination, and rhythm.</li> <li><strong>Gymnastics:</strong> Strength, flexibility, and gross motor skills.</li> <li><strong>Art:</strong> Integrated with culture topic exploration.</li> <li><strong>Sports:</strong> Basics of various sports promoting fitness and teamwork.</li> </ul> </div> </div>
 
-         {/* Montessori Differentiators (Image Left) */} <div className="flex flex-col md:flex-row bg-white rounded-xl shadow-lg hover:shadow-2xl overflow-hidden"> <div className="md:w-1/3"> <img src="/montessor.jpg" alt="Montessori Differentiators" className="w-full h-full object-cover" /> </div> <div className="md:w-2/3 p-6 flex flex-col justify-center"> <h3 className="text-xl font-semibold text-green-800 mb-2">Montessori Differentiators</h3> <ul className="list-disc pl-5 mt-2 text-gray-700 space-y-1"> <li>Mixed-Age Classrooms</li> <li>Personalized Lessons</li> <li>Multisensory Learning</li> <li>Prepared Environment</li> <li>Montessori Materials</li> </ul>
+         {/* Montessori Differentiators (Image Left) */} <div className="flex flex-col md:flex-row bg-white rounded-xl shadow-lg hover:shadow-2xl overflow-hidden"> <div className="md:w-1/3"> <img src="/montessori.jpg" alt="Montessori Differentiators" className="w-full h-full object-cover" /> </div> <div className="md:w-2/3 p-6 flex flex-col justify-center"> <h3 className="text-xl font-semibold text-green-800 mb-2">Montessori Differentiators</h3> <ul className="list-disc pl-5 mt-2 text-gray-700 space-y-1"> <li>Mixed-Age Classrooms</li> <li>Personalized Lessons</li> <li>Multisensory Learning</li> <li>Prepared Environment</li> <li>Montessori Materials</li> </ul>
             </div>
           </div>
 

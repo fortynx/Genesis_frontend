@@ -19,7 +19,7 @@ export const headerMenu = [
     ],
   },
   {
-    title: "ABODE Life",
+    title: "Genesis",
     children: [
       { title: "Beyond Academics", href: "/life/beyondacademics" },
       
@@ -29,8 +29,8 @@ export const headerMenu = [
     title: "Admissions",
     children: [
       { title: "Admissions", href: "/admissions/process" },
-      { title: "Fee Structure", href: "/admissions/fees" },
-      { title: "Apply Now", href: "/admissions/apply" },
+      //{ title: "Fee Structure", href: "/admissions/fees" },//
+      //{ title: "Apply Now", href: "/admissions/apply" },//
     ],
   },
   { title: "Gallery", href: "/gallery" },

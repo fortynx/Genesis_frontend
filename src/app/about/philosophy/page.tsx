@@ -2,7 +2,8 @@
 
 import React from "react";
 import Footer from "@/components/Footer";
-import Header from "@/components/Header/Header"; // ✅ Import your updated Header
+import Header from "@/components/Header/Header";
+import Breadcrumb from "@/components/Breadcrumb";
 
 export default function PhilosophyPage() {
   return (
@@ -16,9 +17,12 @@ export default function PhilosophyPage() {
         <section className="relative bg-[#313e3b] text-white min-h-[80vh] py-16 px-6 md:px-16">
           <div className="max-w-6xl mx-auto mt-36">
             <h1 className="text-4xl md:text-3xl font-bold">Our Philosophy</h1>
+            {/* Breadcrumb (RIGHT AFTER HEADING) */}
+                    <Breadcrumb />
             <p className="text-lg md:text-xl mt-2">
               About us: Our Philosophy
             </p>
+
           </div>
         </section>
 

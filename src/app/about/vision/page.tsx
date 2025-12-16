@@ -3,6 +3,7 @@
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer";
 import Image from "next/image";
+import Breadcrumb from "@/components/Breadcrumb";
 
 export default function VisionPage() {
   return (
@@ -15,8 +16,10 @@ export default function VisionPage() {
         <div className="max-w-6xl mx-auto mt-36">
 
   <h1 className="text-4xl md:text-3xl font-bold">
-    Vision & Values
+    Our Vision & Values
   </h1>
+   {/* Breadcrumb (RIGHT AFTER HEADING) */}
+        <Breadcrumb />
   <p className="text-lg md:text-xl mt-4 max-w-3xl">
     Shaping young minds with integrity, excellence, and purpose.
   </p>

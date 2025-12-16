@@ -3,6 +3,8 @@
 import React from "react";
 import Header from "@/components/Header/Header"; // ✅ Import updated Header
 import Footer from "@/components/Footer";
+import Breadcrumb from "@/components/Breadcrumb";
+
 
 export default function OurPeoplePage() {
   const teamMembers = [
@@ -30,6 +32,8 @@ export default function OurPeoplePage() {
         <section className="relative bg-[#313e3b] text-white min-h-[80vh] py-16 px-6 md:px-16">
           <div className="max-w-6xl mx-auto mt-36">
             <h1 className="text-4xl md:text-5xl font-bold">Our People</h1>
+            {/* Breadcrumb (RIGHT AFTER HEADING) */}
+                                <Breadcrumb />
             <p className="text-lg md:text-xl mt-2">
               About us: Our People
             </p>

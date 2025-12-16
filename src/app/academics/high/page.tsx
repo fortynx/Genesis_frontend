@@ -4,6 +4,7 @@ import React, { useState } from "react";
 
 import Footer from "@/components/Footer";
 import Header from "@/components/Header/Header";
+import Breadcrumb from "@/components/Breadcrumb";
 
 
 export default function HighPage() {
@@ -21,6 +22,8 @@ export default function HighPage() {
         <Header/>
         <div className="max-w-6xl mx-auto mt-36">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">High School</h1>
+          {/* Breadcrumb (RIGHT AFTER HEADING) */}
+                    <Breadcrumb />
           <p className="text-lg md:text-xl">Preparing for higher education and life</p>
         </div>
       </section>

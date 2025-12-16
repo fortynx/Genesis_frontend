@@ -3,6 +3,8 @@
 import React, { useState } from "react";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header/Header";
+import Breadcrumb from "@/components/Breadcrumb";
+
 
 export default function MiddlePage() {
   
@@ -20,6 +22,8 @@ export default function MiddlePage() {
          {/* HERO TEXT */}
         <div className="max-w-6xl mx-auto mt-36">
           <h1 className="text-4xl md:text-5xl font-bold">Middle School</h1>
+          {/* Breadcrumb (RIGHT AFTER HEADING) */}
+                    <Breadcrumb />
           <p className="text-lg md:text-xl mt-2">Academics: Middle School Programs</p>
         </div>
       </section>
