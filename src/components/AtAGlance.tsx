@@ -12,16 +12,18 @@ const tabs = [
     color: "bg-[#e45a4d]",
     image: "/programs.jpg",
     title: "Our Programs",
-    desc: "From Montessori Preschool to Grade 12, offering an integrated Cambridge and CBSE curriculum with specialised pathways from Grade 8.",
+    desc:
+      "From Montessori Preschool to Grade 12, offering an integrated Cambridge and CBSE curriculum.",
   },
   {
     id: 1,
     slug: "/difference",
-    label: "The GENESIS difference",
+    label: "The GENESIS Difference",
     color: "bg-[#a6d8d8]",
     image: "/difference.jpg",
-    title: "The GENESIS difference",
-    desc: "Personalised learning, strong foundation in literacy and STEM, and character education.",
+    title: "The GENESIS Difference",
+    desc:
+      "Personalised learning, strong literacy foundations, and holistic development.",
   },
   {
     id: 2,
@@ -30,7 +32,8 @@ const tabs = [
     color: "bg-[#3b84a0]",
     image: "/campus.jpg",
     title: "Our Campus",
-    desc: "A safe, modern, green campus built to foster academic and emotional growth.",
+    desc:
+      "A safe, modern, green campus designed to support emotional and academic growth.",
   },
   {
     id: 3,
@@ -39,36 +42,50 @@ const tabs = [
     color: "bg-[#f2c94c]",
     image: "/admissions.jpg",
     title: "Admission Process",
-    desc: "Simple & transparent admission with assistance and guidance for parents.",
+    desc:
+      "A simple and transparent admission process with guidance at every step.",
   },
 ];
 
 export default function AtAGlance() {
-  const [activeIndex, setActiveIndex] = useState<number>(0);
+  const [activeIndex, setActiveIndex] = useState(0);
   const [previewIndex, setPreviewIndex] = useState<number | null>(null);
 
   const shownIndex = previewIndex ?? activeIndex;
   const shown = tabs[shownIndex];
 
   return (
-    <section id="about" className="py-12 bg-white" >
-      <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-8">At a Glance</h2>
+    <section id="about" className="py-20 bg-white">
+      <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-14">
+        At a Glance
+      </h2>
 
-      <div className="max-w-4xl mx-auto px-4">
-        {/* container: on mobile stack image above menu; on md show side-by-side */}
-        <div className="flex flex-col md:flex-row rounded-lg overflow-hidden shadow-lg md:h-72">
-          {/* RIGHT IMAGE (order-1 on mobile so image is on top) */}
-          <div className="relative md:w-2/3 w-full md:order-2 order-1 md:h-full h-64">
-            <Image src={shown.image} alt={shown.title} fill className="object-cover" priority />
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="flex flex-col md:flex-row rounded-2xl overflow-hidden shadow-xl md:h-96">
+
+          {/* IMAGE WITH ZOOM */}
+          <div className="relative md:w-2/3 w-full md:order-2 order-1 md:h-full h-80 group overflow-hidden">
+            <Image
+              src={shown.image}
+              alt={shown.title}
+              fill
+              priority
+              className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+            />
 
             <div className="absolute inset-0 bg-black/55 flex items-center">
-              <div className="px-6 text-white max-w-xl">
-                <h3 className="text-xl md:text-2xl font-bold">{shown.title}</h3>
-                <p className="mt-2 text-sm md:text-base">{shown.desc}</p>
+              <div className="px-8 text-white max-w-xl">
+                <h3 className="text-2xl md:text-3xl font-bold">
+                  {shown.title}
+                </h3>
+
+                <p className="mt-3 text-base md:text-lg leading-relaxed">
+                  {shown.desc}
+                </p>
 
                 <Link
                   href={shown.slug}
-                  className="inline-block mt-4 px-5 py-2 bg-white/20 border border-white rounded-full hover:bg-white/30"
+                  className="inline-block mt-6 px-6 py-3 bg-white/20 border border-white rounded-full hover:bg-white/30 text-base"
                 >
                   Learn More
                 </Link>
@@ -76,10 +93,11 @@ export default function AtAGlance() {
             </div>
           </div>
 
-          {/* LEFT MENU (order-2 on mobile so it stacks below image) */}
+          {/* LEFT MENU */}
           <div className="md:w-1/3 w-full flex flex-col md:order-1 order-2">
             {tabs.map((tab, i) => {
               const isActive = i === activeIndex;
+
               return (
                 <Link
                   key={tab.id}
@@ -87,15 +105,27 @@ export default function AtAGlance() {
                   onMouseEnter={() => setPreviewIndex(i)}
                   onMouseLeave={() => setPreviewIndex(null)}
                   onClick={() => setActiveIndex(i)}
-                  className={`${tab.color} text-white px-6 py-4 flex items-center justify-between font-semibold group transition-all flex-1 min-h-[64px]
-                    ${isActive ? "scale-[1.01] ring-4 ring-white/30" : "opacity-95 hover:opacity-100"}`}
+                  className={`
+                    ${tab.color}
+                    text-white px-8 py-6 flex items-center justify-between
+                    font-semibold transition-all flex-1 min-h-[88px]
+                    ${isActive
+                      ? "scale-[1.01] ring-4 ring-white/30"
+                      : "opacity-95 hover:opacity-100"}
+                  `}
                 >
-                  <span className="text-sm md:text-base">{tab.label}</span>
-                  <span className="text-2xl transition-opacity duration-150 opacity-0 group-hover:opacity-100">→</span>
+                  <span className="text-base md:text-lg">
+                    {tab.label}
+                  </span>
+
+                  <span className="text-3xl opacity-0 group-hover:opacity-100 transition-opacity">
+                    →
+                  </span>
                 </Link>
               );
             })}
           </div>
+
         </div>
       </div>
     </section>

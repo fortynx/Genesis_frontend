@@ -14,151 +14,161 @@ const initiatives = [
   },
   {
     id: "student",
-    title: "Student–Led Presentations",
+    title: "Student-Led Presentations",
     content:
-      "Students present projects and learning outcomes regularly to build confidence and communication skills. Our student-led model encourages ownership of learning.",
+      "Students present projects and learning outcomes regularly to build confidence, communication skills, and ownership of learning.",
   },
   {
     id: "adhvan",
     title: "Adhvan",
-    content: "Adhvan is our inter-house learning challenge that emphasises creativity and teamwork.",
+    content:
+      "Adhvan is an inter-house learning challenge that promotes creativity, collaboration, and teamwork among students.",
   },
   {
     id: "curio",
     title: "Curio",
-    content: "Curio is a maker/innovation club where students experiment with STEM activities and mini-projects.",
+    content:
+      "Curio is a maker and innovation club where students explore STEM concepts through hands-on activities and mini-projects.",
   },
   {
     id: "mathathon",
     title: "Math-a-Thon",
-    content: "A school-wide math event to promote numeracy and problem solving through friendly competition.",
+    content:
+      "Math-a-Thon is a school-wide mathematics event that encourages problem-solving, logical thinking, and numeracy through engaging challenges and friendly competition.",
   },
   {
     id: "lekhan",
     title: "Lekhan",
-    content: "Creative writing initiative to develop vocabulary, expression and storytelling.",
+    content:
+      "Lekhan is a creative writing initiative designed to strengthen vocabulary, expression, and storytelling skills among students.",
   },
   {
     id: "thinkblink",
     title: "Think Blink",
-    content: "Short idea-challenges and quick-thinking games that build reasoning and agility.",
+    content:
+      "Think Blink includes quick-thinking challenges and idea games that sharpen reasoning skills, speed, and mental agility.",
   },
   {
     id: "readathon",
     title: "Read-a-Thon",
-    content: "A reading drive that motivates students to read widely and track progress.",
+    content:
+      "Read-a-Thon is a reading drive that motivates students to read widely, track progress, and develop a lifelong reading habit.",
   },
   {
-    id: "abodeed",
-    title: "GENESIS-Ed",
-    content: "An enrichment module with workshops, guest lectures and experiential learning.",
+    id: "abode",
+    title: "ABODE-Ed",
+    content:
+      "ABODE-Ed is an enrichment initiative that includes workshops, guest lectures, and experiential learning opportunities beyond the classroom.",
   },
   {
     id: "funfriday",
     title: "Fun Friday",
-    content: "Weekly activities for social-emotional learning and relaxation: arts, games and team bonding.",
+    content:
+      "Fun Friday features weekly activities focused on social-emotional learning, relaxation, arts, games, and team bonding.",
   },
 ];
 
 export default function DifferencePage() {
-  const [openId, setOpenId] = useState<string | null>(null);
+  const [openId, setOpenId] = useState<string | null>("bookbag");
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Header />
 
-      {/* Hero */}
-      <header className="bg-[#0a1f2c] text-white py-20">
-        <div className="max-w-6xl mx-auto px-6">
-          {/* UPDATED SCHOOL NAME */}
-          <h1 className="text-4xl font-extrabold">GENESIS Initiatives</h1>
-          <p className="mt-2 opacity-80">GENESIS Life › GENESIS Initiatives</p>
+      {/* HERO SECTION */}
+      <header className="relative bg-[#202a22] text-white pt-32 pb-32 md:pt-40 md:pb-40 overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <span className="ball ball-1" />
+          <span className="ball ball-2" />
+          <span className="ball ball-3" />
+          <span className="ball ball-4" />
+        </div>
+
+        <div className="relative max-w-6xl mx-auto px-6">
+          <h1 className="text-4xl md:text-5xl font-extrabold">
+            GENESIS Initiatives
+          </h1>
+          <p className="mt-4 opacity-80">
+            GENESIS Life › GENESIS Initiatives
+          </p>
         </div>
       </header>
 
       <main className="flex-1">
-        {/* Intro */}
-        <section className="max-w-6xl mx-auto px-6 py-10">
+        {/* INTRO */}
+        <section className="max-w-6xl mx-auto px-6 py-12">
           <p className="text-gray-700 leading-relaxed">
-            We are dedicated to providing our students with enriching and diverse experiences that extend beyond the
-            traditional classroom. Our initiatives and programs are designed to foster curiosity, creativity, and
-            critical thinking, ensuring holistic development for every child.
+            At GENESIS, we believe learning goes beyond the classroom. Our
+            initiatives are thoughtfully designed to nurture curiosity,
+            creativity, confidence, and holistic development in every child.
           </p>
         </section>
 
-        {/* Image row */}
-        <section className="max-w-6xl mx-auto px-6 py-4">
-          <div className="grid md:grid-cols-2 gap-4">
-            <div className="rounded overflow-hidden shadow">
-              <Image
-                src="/initiative-1.jpg"
-                alt="initiative 1"
-                width={1200}
-                height={500}
-                className="object-cover w-full h-64"
-              />
-            </div>
-            <div className="rounded overflow-hidden shadow">
-              <Image
-                src="/initiative-2.jpg"
-                alt="initiative 2"
-                width={1200}
-                height={500}
-                className="object-cover w-full h-64"
-              />
-            </div>
-          </div>
+        {/* IMAGE */}
+        <section className="max-w-6xl mx-auto px-6 py-6">
+          <Image
+            src="/initiative-1.jpg"
+            alt="Genesis Initiative"
+            width={1800}
+            height={500}
+            className="rounded-lg object-cover w-full h-64"
+          />
         </section>
 
-        {/* Description + Accordion */}
-        <section className="max-w-6xl mx-auto px-6 py-10">
-          <div className="mb-8">
-            <h2 className="text-xl font-semibold mb-2">Book Bag Program</h2>
-            <p className="text-gray-700">
-              Our Book Bag program supports early readers with a curated set of books and guided activities to foster a
-              love of reading and fluent decoding skills.
-            </p>
-          </div>
+        {/* ACCORDION */}
+        <section className="max-w-6xl mx-auto px-6 py-14">
+          {initiatives.map((item) => {
+            const isOpen = openId === item.id;
 
-          {/* Accordion List */}
-          <div className="bg-white border rounded-md divide-y">
-            {initiatives.map((it) => {
-              const isOpen = openId === it.id;
-              return (
-                <div key={it.id} className="group">
-                  <button
-                    onClick={() => setOpenId(isOpen ? null : it.id)}
-                    className="w-full text-left px-6 py-6 flex items-center justify-between hover:bg-gray-50"
-                  >
-                    <span className="text-gray-800 font-medium">{it.title}</span>
-                    {/* + icon rotates */}
-                    <span
-                      className={`ml-4 text-gray-400 transform transition-transform duration-200 ${
-                        isOpen ? "rotate-45" : "rotate-0"
-                      }`}
-                    >
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <path d="M8 2V14" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-                        <path d="M2 8H14" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-                      </svg>
-                    </span>
-                  </button>
+            return (
+              <div key={item.id} className="border-b border-gray-300 py-5">
+                <button
+                  onClick={() => setOpenId(isOpen ? null : item.id)}
+                  className="w-full flex justify-between items-center text-left"
+                >
+                  <h3 className="text-lg font-semibold text-gray-800">
+                    {item.title}
+                  </h3>
+                  <span className="text-2xl text-gray-500">
+                    {isOpen ? "−" : "+"}
+                  </span>
+                </button>
 
-                  <div
-                    className={`px-6 pb-6 transition-[max-height,opacity] duration-300 overflow-hidden ${
-                      isOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"
-                    }`}
-                  >
-                    <p className="text-gray-600">{it.content}</p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+                {isOpen && (
+                  <p className="mt-4 text-gray-700 leading-relaxed">
+                    {item.content}
+                  </p>
+                )}
+              </div>
+            );
+          })}
         </section>
       </main>
 
       <Footer />
+
+      {/* HERO ANIMATION */}
+      <style jsx>{`
+        .ball {
+          position: absolute;
+          width: 10px;
+          height: 10px;
+          background: #c9a227;
+          border-radius: 50%;
+          opacity: 0.75;
+          animation: float 10s infinite ease-in-out;
+        }
+        .ball-1 { top: 20%; left: 15%; }
+        .ball-2 { top: 60%; left: 30%; animation-delay: 2s; }
+        .ball-3 { top: 35%; right: 20%; animation-delay: 4s; }
+        .ball-4 { bottom: 25%; right: 35%; animation-delay: 6s; }
+
+        @keyframes float {
+          0% { transform: translateY(0); }
+          50% { transform: translateY(-20px); }
+          100% { transform: translateY(0); }
+        }
+      `}</style>
     </div>
   );
 }
