@@ -1,20 +1,5 @@
 "use client";
 
-<<<<<<< HEAD
-import { useEffect, useState, useRef } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { headerMenu } from "./MenuData";
-import { FiChevronDown } from "react-icons/fi";
-
-export default function Header() {
-  const [sticky, setSticky] = useState(false);
-  const [openMenu, setOpenMenu] = useState<number | null>(null);
-  const closeTimeout = useRef<NodeJS.Timeout | null>(null);
-
-  useEffect(() => {
-    const handleScroll = () => setSticky(window.scrollY > 50);
-=======
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -36,22 +21,10 @@ export default function Header() {
       setShowHeader(window.scrollY === 0);
     };
 
->>>>>>> sravanti-frontend
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-<<<<<<< HEAD
-  const handleMouseEnter = (index: number) => {
-    if (closeTimeout.current) clearTimeout(closeTimeout.current);
-    setOpenMenu(index);
-  };
-
-  const handleMouseLeave = () => {
-    closeTimeout.current = setTimeout(() => {
-      setOpenMenu(null);
-    }, 400); // ⏱️ hover delay (increase/decrease here)
-=======
   // ✅ Active menu logic (parent + child)
   const isActive = (item: any) => {
     if (item.href && pathname === item.href) return true;
@@ -63,25 +36,16 @@ export default function Header() {
     }
 
     return false;
->>>>>>> sravanti-frontend
   };
 
   return (
     <header
-<<<<<<< HEAD
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        sticky ? "bg-white shadow-md text-black" : "bg-transparent text-white"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto flex justify-between items-center py-5 px-6">
-=======
       className={`fixed top-0 left-0 w-full z-50 transition-transform duration-300
         ${showHeader ? "translate-y-0" : "-translate-y-full"}
         bg-transparent text-white
       `}
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-5">
->>>>>>> sravanti-frontend
 
         {/* LOGO */}
         <Link href="/">
@@ -90,76 +54,16 @@ export default function Header() {
             alt="School Logo"
             width={150}
             height={70}
-<<<<<<< HEAD
-            className={sticky ? "" : "brightness-200"}
-          />
-        </Link>
-
-        {/* MENU */}
-=======
             className="brightness-200"
           />
         </Link>
 
         {/* DESKTOP MENU */}
->>>>>>> sravanti-frontend
         <nav className="hidden md:flex items-center gap-8 text-[17px] font-medium">
           {headerMenu.map((item, index) => (
             <div
               key={index}
               className="relative"
-<<<<<<< HEAD
-              onMouseEnter={() => handleMouseEnter(index)}
-              onMouseLeave={handleMouseLeave}
-            >
-              {/* Parent Menu Item */}
-              <span className="cursor-pointer flex items-center gap-1 hover:text-orange-500 transition">
-                {item.children ? (
-                  <>
-                    {item.title}
-                    <FiChevronDown
-                      size={18}
-                      className={`transition ${
-                        openMenu === index
-                          ? "rotate-180 text-orange-500"
-                          : ""
-                      }`}
-                    />
-                  </>
-                ) : (
-                  <Link href={item.href}>{item.title}</Link>
-                )}
-              </span>
-
-              {/* DROPDOWN */}
-              {item.children && openMenu === index && (
-                <div
-                  onMouseEnter={() => {
-                    if (closeTimeout.current)
-                      clearTimeout(closeTimeout.current);
-                  }}
-                  onMouseLeave={handleMouseLeave}
-                  className="
-                    absolute left-0 top-8
-                    bg-[#436873] text-white
-                    rounded-md shadow-xl
-                    w-[260px] z-50
-                    border border-white/20
-                  "
-                >
-                  {item.children.map((child, i) => (
-                    <Link
-                      key={i}
-                      href={child.href}
-                      className="
-                        block px-5 py-4
-                        border-t border-white/25 first:border-t-0
-                        hover:bg-[#517c89]
-                        text-[16px]
-                        transition
-                      "
-                      onClick={() => setOpenMenu(null)}
-=======
               onMouseEnter={() => {
                 if (closeTimer.current) clearTimeout(closeTimer.current);
                 setOpenMenu(index);
@@ -216,7 +120,6 @@ export default function Header() {
                             : "hover:bg-[#517c89]"
                         }
                       `}
->>>>>>> sravanti-frontend
                     >
                       {child.title}
                     </Link>
@@ -227,18 +130,6 @@ export default function Header() {
           ))}
         </nav>
 
-<<<<<<< HEAD
-        {/* CTA BUTTON */}
-        <Link
-          href="/visit-us"
-          className={`px-6 py-2 rounded-full font-semibold transition-all ${
-            sticky ? "bg-orange-500 text-white" : "bg-white text-orange-500"
-          }`}
-        >
-          Visit Us
-        </Link>
-      </div>
-=======
         {/* VISIT US */}
         <Link
           href="/visit-us"
@@ -331,7 +222,6 @@ export default function Header() {
           ))}
         </div>
       )}
->>>>>>> sravanti-frontend
     </header>
   );
 }
