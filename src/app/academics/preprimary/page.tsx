@@ -13,7 +13,7 @@ export default function PrePrimaryPage() {
       <Header/> {/* ✅ Highlights Pre-Primary menu */}
 
       {/* HERO SECTION */}
-      <section className="relative bg-[#202a22] text-white min-h-[80vh] py-16 px-6 md:px-16">
+      <section className="relative bg-[#202a22] text-white min-h-[40vh] py-16 px-6 md:px-16">
         <div className="absolute inset-0 pointer-events-none">
           <span className="ball ball-1" />
           <span className="ball ball-2" />

@@ -33,9 +33,11 @@ export default function Breadcrumb() {
 
     // Genesis
     "beyond-academics": "Beyond Academics",
+    "initiatives":"Initiatives",
 
     // Admissions
     "admissions": "Admissions",
+    "schedule":"Schedule",
   };
 
   const parent = parentMap[paths[0]];

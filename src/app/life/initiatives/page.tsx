@@ -4,6 +4,8 @@ import { useState } from "react";
 import Image from "next/image";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer";
+import Breadcrumb from "@/components/Breadcrumb";
+
 
 const initiatives = [
   {
@@ -72,27 +74,28 @@ export default function DifferencePage() {
   const [openId, setOpenId] = useState<string | null>("bookbag");
 
   return (
-    <div className="min-h-screen flex flex-col bg-white">
-      <Header />
-
-      {/* HERO SECTION */}
-      <header className="relative bg-[#202a22] text-white pt-32 pb-32 md:pt-40 md:pb-40 overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <span className="ball ball-1" />
-          <span className="ball ball-2" />
-          <span className="ball ball-3" />
-          <span className="ball ball-4" />
-        </div>
-
-        <div className="relative max-w-6xl mx-auto px-6">
-          <h1 className="text-4xl md:text-5xl font-extrabold">
-            GENESIS Initiatives
-          </h1>
-          <p className="mt-4 opacity-80">
-            GENESIS Life › GENESIS Initiatives
-          </p>
-        </div>
-      </header>
+    <div className="bg-gray-50 min-h-screen">
+          {/* HERO SECTION */}
+          <section className="relative bg-[#202a22] text-white min-h-[40vh] py-16 px-6 md:px-16">
+            <div className="absolute inset-0 pointer-events-none">
+              <span className="ball ball-1" />
+              <span className="ball ball-2" />
+              <span className="ball ball-3" />
+              <span className="ball ball-4" />
+            </div>
+              {/* HEADER */}
+                    <Header/>
+             
+                 
+    
+            {/* HERO TEXT */}
+            <div className="max-w-6xl mx-auto mt-36">
+              <h1 className="text-4xl md:text-5xl font-bold">Genesis Initiatives</h1>
+              {/* Breadcrumb (RIGHT AFTER HEADING) */}
+                        <Breadcrumb />
+              <p className="text-lg md:text-xl mt-2"></p>
+            </div>
+          </section>
 
       <main className="flex-1">
         {/* INTRO */}

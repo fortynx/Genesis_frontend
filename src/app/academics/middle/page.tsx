@@ -15,7 +15,7 @@ export default function MiddlePage() {
     <div className="bg-gray-50 min-h-screen">
 
       {/* HERO */}
-      <section className="relative bg-[#202a22] text-white min-h-[80vh] py-16 px-6 md:px-16">
+      <section className="relative bg-[#202a22] text-white min-h-[40vh] py-16 px-6 md:px-16">
         <div className="absolute inset-0 pointer-events-none">
           <span className="ball ball-1" />
           <span className="ball ball-2" />
@@ -30,7 +30,7 @@ export default function MiddlePage() {
           <h1 className="text-4xl md:text-5xl font-bold">Middle School</h1>
           {/* Breadcrumb (RIGHT AFTER HEADING) */}
                     <Breadcrumb />
-          <p className="text-lg md:text-xl mt-2">Academics: Middle School Programs</p>
+          <p className="text-lg md:text-xl mt-2"></p>
         </div>
       </section>
 
