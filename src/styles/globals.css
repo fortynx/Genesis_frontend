@@ -24,27 +24,3 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
-
-
-
-/* Scroll animation initial state */
-.slide-left,
-.slide-right {
-  opacity: 0;
-  transition: transform 0.8s ease, opacity 0.8s ease;
-}
-
-/* Directions */
-.slide-left {
-  transform: translateX(80px);
-}
-
-.slide-right {
-  transform: translateX(-80px);
-}
-
-/* When element enters viewport */
-.slide-show {
-  transform: translateX(0);
-  opacity: 1;
-}
