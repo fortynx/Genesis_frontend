@@ -22,6 +22,7 @@ export const headerMenu = [
     title: "Genesis",
     children: [
       { title: "Beyond Academics", href: "/life/beyondacademics" },
+      {title:"Genesis Initiatives",href:"/life/initiatives"},
       
     ],
   },
@@ -29,6 +30,7 @@ export const headerMenu = [
     title: "Admissions",
     children: [
       { title: "Admissions", href: "/admissions/process" },
+      { title: "Schedule", href: "/admissions/schedule" }
       //{ title: "Fee Structure", href: "/admissions/fees" },//
       //{ title: "Apply Now", href: "/admissions/apply" },//
     ],

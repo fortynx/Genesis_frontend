@@ -29,7 +29,7 @@ export default function GalleryPage() {
         {/* HERO TEXT */}
         <div className="max-w-6xl mx-auto mt-36">
           <h1 className="text-4xl md:text-5xl font-bold">Gallery</h1>
-          <p className="text-lg md:text-xl mt-2">Life at ABODE School</p>
+          <p className="text-lg md:text-xl mt-2">Life at Genesis School</p>
         </div>
       </section>
 
