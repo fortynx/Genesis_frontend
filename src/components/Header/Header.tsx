@@ -50,7 +50,7 @@ export default function Header() {
         {/* LOGO */}
         <Link href="/">
           <Image
-            src="/logo.jpg"
+            src="/logo.png"
             alt="School Logo"
             width={150}
             height={70}

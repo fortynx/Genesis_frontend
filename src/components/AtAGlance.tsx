@@ -26,6 +26,7 @@ const tabs = [
       "Personalised learning, strong literacy foundations, and holistic development.",
   },
   {
+   
     id: 2,
     slug: "/campus",
     label: "Our Campus",
@@ -34,6 +35,7 @@ const tabs = [
     title: "Our Campus",
     desc:
       "A safe, modern, green campus designed to support emotional and academic growth.",
+  
   },
   {
     id: 3,
