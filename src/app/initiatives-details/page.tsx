@@ -103,6 +103,7 @@ export default function InitiativesDetailsPage() {
           </h2>
 
           <div className="space-y-6">
+--++
             {differentiators.map((item) => (
               <div
                 key={item.id}
