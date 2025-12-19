@@ -9,22 +9,33 @@ export default function CampusPage() {
     <div className="min-h-screen flex flex-col bg-white">
       <Header />
 
+      {/* HERO – MATCHED STYLE */}
       {/* HERO */}
-      <section className="relative bg-[#202a22] text-white py-28 md:py-36 overflow-hidden">
-        {/* floating dots */}
-        <span className="ball ball-1" />
-        <span className="ball ball-2" />
-        <span className="ball ball-3" />
+<section className="relative bg-[#202a22] text-white min-h-[80vh] overflow-hidden">
 
-        <div className="relative max-w-6xl mx-auto px-6 text-center">
-          <h1 className="text-4xl md:text-5xl font-extrabold">
-            Our Campuses
-          </h1>
-          <p className="mt-3 opacity-80">
-            About Us › Our Campuses
-          </p>
-        </div>
-      </section>
+  {/* Floating dots */}
+  <div className="absolute inset-0 pointer-events-none">
+    <span className="ball ball-1" />
+    <span className="ball ball-2" />
+    <span className="ball ball-3" />
+    <span className="ball ball-4" />
+  </div>
+
+  {/* HERO CONTENT */}
+  <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-20">
+    <div className="pt-48 md:pt-56">
+      <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
+        Our Campuses
+      </h1>
+
+      <p className="text-sm md:text-base opacity-80">
+        About Us › Our Campuses
+      </p>
+    </div>
+  </div>
+</section>
+
+      
 
       {/* MAIN CONTENT */}
       <main className="flex-1">
@@ -40,11 +51,10 @@ export default function CampusPage() {
 
         {/* MAIN CAMPUS */}
         <section className="max-w-6xl mx-auto px-6 pb-20 grid md:grid-cols-3 gap-10 items-start">
-          
           {/* IMAGE */}
           <div className="md:col-span-2">
             <Image
-              src="/campus-main.jpg"
+              src="/hero1st.jpg"
               alt="Tellapur Campus"
               width={1200}
               height={700}
@@ -126,28 +136,17 @@ export default function CampusPage() {
       <style jsx>{`
         .ball {
           position: absolute;
-          width: 8px;
-          height: 8px;
+          width: 9px;
+          height: 9px;
           background: #c9a227;
           border-radius: 50%;
-          opacity: 0.8;
+          opacity: 0.75;
           animation: float 10s infinite ease-in-out;
         }
-
-        .ball-1 {
-          top: 30%;
-          left: 20%;
-        }
-        .ball-2 {
-          top: 55%;
-          right: 25%;
-          animation-delay: 3s;
-        }
-        .ball-3 {
-          top: 40%;
-          left: 50%;
-          animation-delay: 6s;
-        }
+        .ball-1 { top: 25%; left: 15%; }
+        .ball-2 { top: 55%; left: 30%; animation-delay: 2s; }
+        .ball-3 { top: 35%; right: 22%; animation-delay: 4s; }
+        .ball-4 { bottom: 25%; right: 35%; animation-delay: 6s; }
 
         @keyframes float {
           0% { transform: translateY(0); }

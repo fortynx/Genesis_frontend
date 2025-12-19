@@ -1,41 +1,45 @@
-// src/components/Header/MenuData.ts
 export const headerMenu = [
   {
-    title: "About Us",
+    title: "About",
     children: [
-      { title: "Vision and Values", href: "/about/vision" },
-      { title: "Our Philosophy", href: "/about/philosophy" },
-      
-      { title: "Our People", href: "/about/people" },
+      { title: "Philosophy", href: "/about/philosophy" },
+      { title: "Vision", href: "/about/vision" },
+      { title: "People", href: "/about/people" },
+      { title: "campus", href: "/campus" },
     ],
   },
   {
     title: "Academics",
     children: [
-      {title:"PrePrimary School",href:"/academics/preprimary"},
-      { title: "Primary School", href: "/academics/primary" },
+      { title: "Pre Primary", href: "/academics/preprimary" },
+      { title: "Primary", href: "/academics/primary" },
       { title: "Middle School", href: "/academics/middle" },
       { title: "High School", href: "/academics/high" },
     ],
   },
   {
-    title: "Genesis",
+    title: "GENESIS Life",
     children: [
-      { title: "Beyond Academics", href: "/life/beyondacademics" },
-      
+      {
+        title: "Genesis Initiatives",
+        href: "/difference", // ✅ Difference Page
+      },
+      {
+        title: "Beyond Academics",
+        href: "/life/beyondacademics",
+      },
     ],
   },
   {
     title: "Admissions",
-    children: [
-      { title: "Admissions", href: "/admissions/process" },
-      //{ title: "Fee Structure", href: "/admissions/fees" },//
-      //{ title: "Apply Now", href: "/admissions/apply" },//
-    ],
+    href: "/admissions",
   },
-  { title: "Gallery", href: "/gallery" },
- 
-  
-
-
+  {
+    title: "Gallery",
+    href: "/gallery",
+  },
+  {
+    title: "Disclosure",
+    href: "/disclosure",
+  },
 ];

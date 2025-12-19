@@ -75,26 +75,33 @@ export default function DifferencePage() {
     <div className="min-h-screen flex flex-col bg-white">
       <Header />
 
-      {/* HERO SECTION */}
-      <header className="relative bg-[#202a22] text-white pt-32 pb-32 md:pt-40 md:pb-40 overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <span className="ball ball-1" />
-          <span className="ball ball-2" />
-          <span className="ball ball-3" />
-          <span className="ball ball-4" />
-        </div>
+      {/* ✅ HERO SECTION */}
+      {/* HERO */}
+<section className="relative bg-[#202a22] text-white min-h-[80vh] overflow-hidden">
 
-        <div className="relative max-w-6xl mx-auto px-6">
-          <h1 className="text-4xl md:text-5xl font-extrabold">
-            GENESIS Initiatives
-          </h1>
-          <p className="mt-4 opacity-80">
-            GENESIS Life › GENESIS Initiatives
-          </p>
-        </div>
-      </header>
+  {/* Floating dots */}
+  <div className="absolute inset-0 pointer-events-none">
+    <span className="ball ball-1" />
+    <span className="ball ball-2" />
+    <span className="ball ball-3" />
+    <span className="ball ball-4" />
+  </div>
 
-      <main className="flex-1">
+  {/* HERO CONTENT */}
+  <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-20">
+    <div className="pt-48 md:pt-56">
+      <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
+        GENESIS Initiatives
+      </h1>
+
+      <p className="text-sm md:text-base opacity-80">
+        GENESIS Life › GENESIS Initiatives
+      </p>
+    </div>
+  </div>
+</section>
+ <main className="flex-1">
+  
         {/* INTRO */}
         <section className="max-w-6xl mx-auto px-6 py-12">
           <p className="text-gray-700 leading-relaxed">
@@ -147,21 +154,21 @@ export default function DifferencePage() {
 
       <Footer />
 
-      {/* HERO ANIMATION */}
+      {/* HERO BALL ANIMATION */}
       <style jsx>{`
         .ball {
           position: absolute;
-          width: 10px;
-          height: 10px;
+          width: 9px;
+          height: 9px;
           background: #c9a227;
           border-radius: 50%;
           opacity: 0.75;
           animation: float 10s infinite ease-in-out;
         }
         .ball-1 { top: 20%; left: 15%; }
-        .ball-2 { top: 60%; left: 30%; animation-delay: 2s; }
+        .ball-2 { top: 55%; left: 25%; animation-delay: 2s; }
         .ball-3 { top: 35%; right: 20%; animation-delay: 4s; }
-        .ball-4 { bottom: 25%; right: 35%; animation-delay: 6s; }
+        .ball-4 { bottom: 25%; right: 30%; animation-delay: 6s; }
 
         @keyframes float {
           0% { transform: translateY(0); }

@@ -1,163 +1,178 @@
 "use client";
 
+import { useState } from "react";
+import Image from "next/image";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer";
 
-const differentiators = [
+const initiatives = [
   {
-    id: "01",
-    title: "Dynamic Educational Pathways",
-    desc:
-      "We provide a structured yet flexible learning journey, seamlessly integrating Cambridge and CBSE frameworks.",
-    color: "bg-teal-300",
-    numColor: "text-teal-400",
+    id: "bookbag",
+    title: "Book Bag Program",
+    content:
+      "Our unique phonetic-based reading program in preschool helps children navigate the complexities of reading through various phonograms and orthogonal challenges. The Book Bag Program features a series of 120 books designed to guide children to become proficient readers by the age of 6 years. This program supports children in developing a deep understanding of language and a love for reading.",
   },
   {
-    id: "02",
-    title: "Personalized Learning",
-    desc:
-      "Our Montessori-based approach emphasizes individualized learning, accommodating each child’s unique needs.",
-    color: "bg-yellow-300",
-    numColor: "text-yellow-400",
+    id: "student",
+    title: "Student-Led Presentations",
+    content:
+      "Students present projects and learning outcomes regularly to build confidence, communication skills, and ownership of learning.",
   },
   {
-    id: "03",
-    title: "Unique Pedagogy",
-    desc:
-      "Our innovative teaching model fosters curiosity and critical thinking through active exploration.",
-    color: "bg-slate-500",
-    numColor: "text-slate-500",
+    id: "adhvan",
+    title: "Adhvan",
+    content:
+      "Adhvan is an inter-house learning challenge that promotes creativity, collaboration, and teamwork among students.",
   },
   {
-    id: "04",
-    title: "Transformative Growth",
-    desc:
-      "We emphasize academic excellence alongside socio-emotional learning and leadership skills.",
-    color: "bg-cyan-300",
-    numColor: "text-cyan-400",
+    id: "curio",
+    title: "Curio",
+    content:
+      "Curio is a maker and innovation club where students explore STEM concepts through hands-on activities and mini-projects.",
   },
   {
-    id: "05",
-    title: "Literacy Excellence",
-    desc:
-      "From early phonics to advanced literacy programs, we build a strong foundation in reading and writing.",
-    color: "bg-red-500",
-    numColor: "text-red-500",
+    id: "mathathon",
+    title: "Math-a-Thon",
+    content:
+      "Math-a-Thon is a school-wide mathematics event that encourages problem-solving, logical thinking, and numeracy through engaging challenges and friendly competition.",
   },
   {
-    id: "06",
-    title: "Celebrating Uniqueness",
-    desc:
-      "Our enrichment programs nurture diverse talents and encourage creative exploration.",
-    color: "bg-yellow-400",
-    numColor: "text-yellow-500",
+    id: "lekhan",
+    title: "Lekhan",
+    content:
+      "Lekhan is a creative writing initiative designed to strengthen vocabulary, expression, and storytelling skills among students.",
   },
   {
-    id: "07",
-    title: "Diverse Extracurriculars",
-    desc:
-      "A wide range of clubs and activities support holistic development beyond academics.",
-    color: "bg-blue-600",
-    numColor: "text-blue-600",
+    id: "thinkblink",
+    title: "Think Blink",
+    content:
+      "Think Blink includes quick-thinking challenges and idea games that sharpen reasoning skills, speed, and mental agility.",
   },
   {
-    id: "08",
-    title: "State-of-the-Art Facilities",
-    desc:
-      "Modern classrooms and advanced resources enhance the learning experience.",
-    color: "bg-cyan-200",
-    numColor: "text-cyan-400",
+    id: "readathon",
+    title: "Read-a-Thon",
+    content:
+      "Read-a-Thon is a reading drive that motivates students to read widely, track progress, and develop a lifelong reading habit.",
+  },
+  {
+    id: "abode",
+    title: "ABODE-Ed",
+    content:
+      "ABODE-Ed is an enrichment initiative that includes workshops, guest lectures, and experiential learning opportunities beyond the classroom.",
+  },
+  {
+    id: "funfriday",
+    title: "Fun Friday",
+    content:
+      "Fun Friday features weekly activities focused on social-emotional learning, relaxation, arts, games, and team bonding.",
   },
 ];
 
-export default function InitiativesDetailsPage() {
+export default function DifferencePage() {
+  const [openId, setOpenId] = useState<string | null>("bookbag");
+
   return (
-    <div className="min-h-screen flex flex-col bg-[#f7f9f8]">
+    <div className="min-h-screen flex flex-col bg-white">
       <Header />
 
-      {/* ✅ HERO SECTION WITH ANIMATION */}
-      <section className="relative bg-[#0b1f2a] text-white py-32 md:py-40 overflow-hidden">
-        
-        {/* Floating balls */}
-        <span className="ball ball-1" />
-        <span className="ball ball-2" />
-        <span className="ball ball-3" />
-        <span className="ball ball-4" />
-        <span className="ball ball-5" />
+      {/* ✅ HERO SECTION */}
+      {/* HERO */}
+<section className="relative bg-[#202a22] text-white min-h-[80vh] overflow-hidden">
 
-        <div className="relative max-w-5xl mx-auto px-6 text-center">
-          <h1 className="text-4xl md:text-5xl font-extrabold">
-            Why Us
-          </h1>
-          <p className="mt-4 opacity-80 text-lg">
-            Admissions › Why Us
+  {/* Floating dots */}
+  <div className="absolute inset-0 pointer-events-none">
+    <span className="ball ball-1" />
+    <span className="ball ball-2" />
+    <span className="ball ball-3" />
+    <span className="ball ball-4" />
+  </div>
+
+  {/* HERO CONTENT */}
+  <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-20">
+    <div className="pt-48 md:pt-56">
+      <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
+        GENESIS Initiatives
+      </h1>
+
+      <p className="text-sm md:text-base opacity-80">
+        GENESIS Life › GENESIS Initiatives
+      </p>
+    </div>
+  </div>
+</section>
+ <main className="flex-1">
+  
+        {/* INTRO */}
+        <section className="max-w-6xl mx-auto px-6 py-12">
+          <p className="text-gray-700 leading-relaxed">
+            At GENESIS, we believe learning goes beyond the classroom. Our
+            initiatives are thoughtfully designed to nurture curiosity,
+            creativity, confidence, and holistic development in every child.
           </p>
-        </div>
-      </section>
+        </section>
 
-      {/* CONTENT */}
-      <main className="flex-1">
-        <section className="max-w-4xl mx-auto px-6 py-20">
-          <h2 className="text-2xl font-bold mb-12 text-center">
-            Our Differentiators
-          </h2>
+        {/* IMAGE */}
+        <section className="max-w-6xl mx-auto px-6 py-6">
+          <Image
+            src="/initiative-1.jpg"
+            alt="Genesis Initiative"
+            width={1800}
+            height={500}
+            className="rounded-lg object-cover w-full h-64"
+          />
+        </section>
 
-          <div className="space-y-6">
-            {differentiators.map((item) => (
-              <div
-                key={item.id}
-                className="bg-white rounded-full shadow-md flex items-center gap-5 px-6 py-6"
-              >
-                {/* Icon Circle */}
-                <div
-                  className={`w-14 h-14 rounded-full flex items-center justify-center ${item.color}`}
+        {/* ACCORDION */}
+        <section className="max-w-6xl mx-auto px-6 py-14">
+          {initiatives.map((item) => {
+            const isOpen = openId === item.id;
+
+            return (
+              <div key={item.id} className="border-b border-gray-300 py-5">
+                <button
+                  onClick={() => setOpenId(isOpen ? null : item.id)}
+                  className="w-full flex justify-between items-center text-left"
                 >
-                  <span className="text-white text-xl font-bold">★</span>
-                </div>
-
-                {/* Text */}
-                <div className="flex-1">
-                  <h3 className="font-semibold text-gray-900">
+                  <h3 className="text-lg font-semibold text-gray-800">
                     {item.title}
                   </h3>
-                  <p className="text-sm text-gray-600 mt-1">
-                    {item.desc}
-                  </p>
-                </div>
+                  <span className="text-2xl text-gray-500">
+                    {isOpen ? "−" : "+"}
+                  </span>
+                </button>
 
-                {/* Number */}
-                <div className={`text-xl font-bold ${item.numColor}`}>
-                  {item.id}
-                </div>
+                {isOpen && (
+                  <p className="mt-4 text-gray-700 leading-relaxed">
+                    {item.content}
+                  </p>
+                )}
               </div>
-            ))}
-          </div>
+            );
+          })}
         </section>
       </main>
 
       <Footer />
 
-      {/* ✅ HERO BALL ANIMATION STYLES */}
+      {/* HERO BALL ANIMATION */}
       <style jsx>{`
         .ball {
           position: absolute;
-          width: 10px;
-          height: 10px;
+          width: 9px;
+          height: 9px;
           background: #c9a227;
           border-radius: 50%;
-          opacity: 0.8;
+          opacity: 0.75;
           animation: float 10s infinite ease-in-out;
         }
-
         .ball-1 { top: 20%; left: 15%; }
-        .ball-2 { top: 60%; left: 25%; animation-delay: 2s; }
+        .ball-2 { top: 55%; left: 25%; animation-delay: 2s; }
         .ball-3 { top: 35%; right: 20%; animation-delay: 4s; }
         .ball-4 { bottom: 25%; right: 30%; animation-delay: 6s; }
-        .ball-5 { top: 45%; left: 50%; animation-delay: 8s; }
 
         @keyframes float {
           0% { transform: translateY(0); }
-          50% { transform: translateY(-22px); }
+          50% { transform: translateY(-20px); }
           100% { transform: translateY(0); }
         }
       `}</style>
