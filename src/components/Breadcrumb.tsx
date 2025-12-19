@@ -16,6 +16,7 @@ export default function Breadcrumb() {
     academics: { label: "Academics", href: "/academics" },
     genesis: { label: "Genesis", href: "/genesis" },
     admissions: { label: "Admissions", href: "/admissions" },
+    
   };
 
   /* ---------------- Child page titles ---------------- */
@@ -24,6 +25,8 @@ export default function Breadcrumb() {
     "vision": "Vision and Values",
     "philosophy": "Our Philosophy",
     "people": "Our People",
+    "campus":"Our Campuses",
+    
 
     // Academics
     "pre-primary": "Pre-Primary School",
@@ -38,6 +41,7 @@ export default function Breadcrumb() {
     // Admissions
     "admissions": "Admissions",
     "schedule":"Schedule",
+    "initiatives-details":"Why Us",
   };
 
   const parent = parentMap[paths[0]];

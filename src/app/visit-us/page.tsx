@@ -1,61 +1,214 @@
 "use client";
 
-import React, { useState } from "react";
-
-
-import Footer from "@/components/Footer";
+import { useState, FormEvent } from "react";
 import Header from "@/components/Header/Header";
+import Footer from "@/components/Footer";
+import Breadcrumb from "@/components/Breadcrumb";
 
+type FormState = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  grade: string;
+  campus: string;
+  address: string;
+  additional: string;
+};
 
-export default function VisitUsPage() {
-  
+export default function ScheduleVisitPage() {
+  const [form, setForm] = useState<FormState>({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    grade: "",
+    campus: "",
+    address: "",
+    additional: "",
+  });
 
- 
+  const [submitting, setSubmitting] = useState(false);
+  const [success, setSuccess] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
+
+  const grades = [
+    "Select",
+    "Preschool",
+    "Kindergarten",
+    "Grade 1",
+    "Grade 2",
+    "Grade 3",
+    "Grade 4",
+    "Grade 5",
+    "Grade 6",
+    "Grade 7",
+    "Grade 8",
+    "Grade 9",
+    "Grade 10",
+    "Grade 11",
+    "Grade 12",
+  ];
+
+  const campuses = ["Select", "Main Campus", "City Campus"];
+
+  function update<K extends keyof FormState>(key: K, value: FormState[K]) {
+    setForm((prev) => ({ ...prev, [key]: value }));
+  }
+
+  function validate() {
+    if (!form.firstName || !form.email || !form.phone) {
+      setError("Please fill first name, email and phone.");
+      return false;
+    }
+    if (!/^\S+@\S+\.\S+$/.test(form.email)) {
+      setError("Enter a valid email address.");
+      return false;
+    }
+    setError(null);
+    return true;
+  }
+
+  async function onSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    if (!validate()) return;
+
+    setSubmitting(true);
+    setSuccess(null);
+    setError(null);
+
+    await new Promise((res) => setTimeout(res, 800));
+
+    setSuccess(
+      "Your request was submitted successfully. Our admissions team will contact you shortly."
+    );
+    setSubmitting(false);
+  }
 
   return (
-    <div className="bg-gray-50 min-h-screen">
+       <div className="bg-gray-50 min-h-screen">
+          {/* HERO */}
+          <section className="relative bg-[#202a22] text-white min-h-[40vh] py-16 px-6 md:px-16">
+            <div className="absolute inset-0 pointer-events-none">
+              <span className="ball ball-1" />
+              <span className="ball ball-2" />
+              <span className="ball ball-3" />
+              <span className="ball ball-4" />
+            </div>
+            <Header/>
+            
+    
+               
+                
+    
+            {/* PAGE HEADING */}
+            <div className="max-w-6xl mx-auto mt-36">
+              <h1 className="text-4xl md:text-5xl font-bold mb-4">
+                Schedule 
+              </h1>
+              {/* Breadcrumb (RIGHT AFTER HEADING) */}
+                        <Breadcrumb />
+            </div>
+          </section>
 
-      {/* HERO + HEADER */}
-      <section className="relative bg-[#202a22] text-white min-h-[40vh] py-16 px-6 md:px-16">
-        <div className="absolute inset-0 pointer-events-none">
-          <span className="ball ball-1" />
-          <span className="ball ball-2" />
-          <span className="ball ball-3" />
-          <span className="ball ball-4" />
-        </div>
-        {/* HEADER */}
-        <Header/>
+      {/* FORM */}
+      <main className="flex-1">
+        <section className="max-w-5xl mx-auto px-6 py-16">
+          <form
+            onSubmit={onSubmit}
+            className="bg-white rounded-2xl shadow-sm p-10 md:p-14 grid md:grid-cols-2 gap-10"
+          >
+            {/* LEFT */}
+            <div className="space-y-7">
+              <Input
+                label="First Name*"
+                value={form.firstName}
+                onChange={(v) => update("firstName", v)}
+              />
 
-         
+              <Input
+                label="Email ID*"
+                value={form.email}
+                onChange={(v) => update("email", v)}
+              />
 
-        {/* HERO TEXT */}
-        <div className="max-w-6xl mx-auto mt-36">
-          <h1 className="text-4xl md:text-5xl font-bold">Visit Us</h1>
-          <p className="text-lg mt-2">
-            We’d love to welcome you to our campus
-          </p>
-        </div>
-      </section>
+              <Select
+                label="Which grade admission are you looking for?*"
+                value={form.grade}
+                options={grades}
+                onChange={(v) => update("grade", v)}
+              />
 
-      {/* PAGE CONTENT */}
-      <section className="max-w-6xl mx-auto px-6 md:px-16 py-16 text-center">
-        <h2 className="text-3xl font-bold text-green-900 mb-4">
-          Plan Your Visit
-        </h2>
-        <p className="text-gray-700 text-lg">
-          Come experience our learning environment in person.
-        </p>
-      </section>
-      <Footer/>
-      {/* ✅ HERO ANIMATION STYLES */}
+              <Textarea
+                label="Your Address"
+                value={form.address}
+                onChange={(v) => update("address", v)}
+              />
+            </div>
+
+            {/* RIGHT */}
+            <div className="space-y-7">
+              <Input
+                label="Last Name*"
+                value={form.lastName}
+                onChange={(v) => update("lastName", v)}
+              />
+
+              <Input
+                label="Phone Number*"
+                value={form.phone}
+                onChange={(v) => update("phone", v)}
+              />
+
+              <Select
+                label="Which campus are you interested in?*"
+                value={form.campus}
+                options={campuses}
+                onChange={(v) => update("campus", v)}
+              />
+
+              <Textarea
+                label="Additional Questions?"
+                value={form.additional}
+                onChange={(v) => update("additional", v)}
+              />
+            </div>
+
+            {/* FOOTER */}
+            <div className="md:col-span-2 mt-6 space-y-4">
+              {error && <p className="text-red-600">{error}</p>}
+              {success && <p className="text-green-600">{success}</p>}
+
+              <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                <p className="text-sm text-gray-500 max-w-xl">
+                  We are committed to protecting your privacy. Your information
+                  will only be used for admissions-related communication.
+                </p>
+
+                <button
+                  type="submit"
+                  disabled={submitting}
+                  className="bg-[#202a22] text-white px-10 py-3 rounded-full hover:opacity-90 disabled:opacity-60"
+                >
+                  {submitting ? "Submitting..." : "Submit"}
+                </button>
+              </div>
+            </div>
+          </form>
+        </section>
+      </main>
+
+      <Footer />
+
+      {/* HERO ANIMATION */}
       <style jsx>{`
         .ball {
           position: absolute;
-          width: 14px;
-          height: 14px;
+          width: 10px;
+          height: 10px;
           background: #c9a227;
           border-radius: 50%;
-          opacity: 0.8;
+          opacity: 0.75;
           animation: float 10s infinite ease-in-out;
         }
 
@@ -83,23 +236,77 @@ export default function VisitUsPage() {
         }
 
         @keyframes float {
-          0% {
-            transform: translateY(0);
-          }
-          50% {
-            transform: translateY(-25px);
-          }
-          100% {
-            transform: translateY(0);
-          }
-        }
-
-        .text-gradient {
-          background: linear-gradient(135deg, #c9a227, #2ecc71);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
+          0% { transform: translateY(0); }
+          50% { transform: translateY(-20px); }
+          100% { transform: translateY(0); }
         }
       `}</style>
     </div>
+  );
+}
+
+/* REUSABLE COMPONENTS */
+
+type InputProps = {
+  label: string;
+  value: string;
+  onChange: (v: string) => void;
+};
+
+function Input({ label, value, onChange }: InputProps) {
+  return (
+    <label className="block text-sm text-gray-700">
+      {label}
+      <input
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        className="mt-2 w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#c9a227]"
+      />
+    </label>
+  );
+}
+
+type SelectProps = {
+  label: string;
+  value: string;
+  options: string[];
+  onChange: (v: string) => void;
+};
+
+function Select({ label, value, options, onChange }: SelectProps) {
+  return (
+    <label className="block text-sm text-gray-700">
+      {label}
+      <select
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        className="mt-2 w-full border rounded-lg px-4 py-3 bg-white"
+      >
+        {options.map((o) => (
+          <option key={o} value={o === "Select" ? "" : o}>
+            {o}
+          </option>
+        ))}
+      </select>
+    </label>
+  );
+}
+
+type TextareaProps = {
+  label: string;
+  value: string;
+  onChange: (v: string) => void;
+};
+
+function Textarea({ label, value, onChange }: TextareaProps) {
+  return (
+    <label className="block text-sm text-gray-700">
+      {label}
+      <textarea
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        className="mt-2 w-full border rounded-lg px-4 py-3 min-h-[120px]"
+      />
+    </label>
   );
 }
