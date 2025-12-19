@@ -35,7 +35,7 @@ export default function ProgramsPage() {
       <Header />
 
       {/* HERO */}
-      <section className="relative bg-[#202a22] text-white min-h-[80vh] overflow-hidden">
+      <section className="relative bg-[#202a22] text-white min-h-[70vh] overflow-hidden">
 
         {/* Background Image */}
         
