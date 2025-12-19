@@ -64,3 +64,56 @@ body {
   opacity: 0;
   animation: fadeUp 0.4s ease forwards;
 }
+/* ===== HERO FLOATING YELLOW BALLS ===== */
+.hero-ball {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #c9a227; /* dark yellow */
+  border-radius: 50%;
+  opacity: 0.9;
+  animation: heroFloat 10s ease-in-out infinite;
+}
+
+/* Positions */
+.ball-1 {
+  top: 20%;
+  left: 12%;
+}
+
+.ball-2 {
+  top: 50%;
+  left: 28%;
+  animation-delay: 2s;
+}
+
+.ball-3 {
+  top: 35%;
+  right: 18%;
+  animation-delay: 4s;
+}
+
+.ball-4 {
+  bottom: 25%;
+  right: 30%;
+  animation-delay: 6s;
+}
+
+.ball-5 {
+  top: 15%;
+  right: 40%;
+  animation-delay: 8s;
+}
+
+/* Animation */
+@keyframes heroFloat {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-18px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

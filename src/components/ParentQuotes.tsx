@@ -8,21 +8,21 @@ const quotes = [
     id: 1,
     name: "Dipti & Mayuresh Jejurkar",
     text:
-      "Our daughter, Manva, loves her school and we love the progress she has made. The Book Bag Program at GENESIS helped her learn to read from the age of 4 years and 6 months. The teachers are caring and the environment is very encouraging.",
+      "Our daughter Manva’s journey at GENESIS School has been truly wonderful and fulfilling. From the very beginning, we noticed a positive change in her confidence, curiosity, and eagerness to learn. The Book Bag Program played a significant role in helping her start reading at the early age of four years and six months, which exceeded our expectations. The teachers are extremely caring, patient, and attentive, ensuring that each child receives personalized guidance. The nurturing environment, well-structured curriculum, and continuous encouragement have made learning enjoyable for Manva, and as parents, we feel reassured knowing she is growing academically, emotionally, and socially in such a supportive atmosphere.",
     photo: "/placeholder-avatar1.png",
   },
   {
     id: 2,
     name: "Hima Kanumuru",
     text:
-      "Our older child Siddharth has been part of GENESIS for the last 7 years, and our younger child Abhinav joined 5 years ago. The school focuses not only on academics but also on values and confidence building.",
+      "GENESIS School has been an integral part of our family for many years, with our elder son Siddharth studying here for the past seven years and our younger son Abhinav joining five years ago. What we value most is the school’s holistic approach that goes beyond academics to focus on values, discipline, confidence building, and independent thinking. The teachers consistently motivate the children to express themselves freely while maintaining strong academic foundations. The supportive environment, transparent communication with parents, and emphasis on character development have helped our children grow into confident, responsible individuals, making GENESIS a school we trust wholeheartedly.",
     photo: "/placeholder-avatar2.png",
   },
   {
     id: 3,
     name: "Archana Anoor",
     text:
-      "GENESIS introduced our child to logic and language at an early age. The teachers put in tremendous effort and keep parents well informed about progress.",
+      "Our experience with GENESIS School has been extremely positive, as it introduced our child to structured learning, language skills, and logical thinking at an early stage. The dedication and commitment shown by the teachers are truly commendable, as they put in continuous effort to understand each child’s strengths and areas for improvement. We particularly appreciate the regular updates and open communication that keep parents informed about academic progress and overall development. GENESIS maintains a healthy balance between academic excellence and emotional well-being, creating a warm, nurturing environment where children feel safe, confident, and motivated to learn every day.",
     photo: "/placeholder-avatar3.png",
   },
 ];

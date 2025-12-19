@@ -32,7 +32,12 @@ export const headerMenu = [
   },
   {
     title: "Admissions",
-    href: "/admissions",
+    children: [
+      { title: "Admissions", href: "/admissions/process" },
+      { title: "Schedule", href: "/admissions/schedule" }
+      //{ title: "Fee Structure", href: "/admissions/fees" },//
+      //{ title: "Apply Now", href: "/admissions/apply" },//
+    ],
   },
   {
     title: "Gallery",
