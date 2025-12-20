@@ -25,7 +25,7 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // ✅ Active menu logic (parent + child)
+  // ✅ Active menu logic
   const isActive = (item: any) => {
     if (item.href && pathname === item.href) return true;
 
@@ -39,148 +39,161 @@ export default function Header() {
   };
 
   return (
-    <header
-      className={`fixed top-0 left-0 w-full z-50 transition-transform duration-300
-        ${showHeader ? "translate-y-0" : "-translate-y-full"}
-        bg-transparent text-white
-      `}
-    >
-      <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-5">
+    <>
+      {/* HEADER */}
+      <header
+        className={`fixed top-0 left-0 w-full z-50 transition-transform duration-300
+          ${showHeader ? "translate-y-0" : "-translate-y-full"}
+          bg-transparent text-white
+        `}
+      >
+        <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-5">
 
-        {/* LOGO */}
-        <Link href="/">
-          <Image
-            src="/logo.png"
-            alt="School Logo"
-            width={150}
-            height={70}
-            className="brightness-200"
-          />
-        </Link>
+          {/* LOGO */}
+          <Link href="/">
+            <Image
+              src="/logo.png"
+              alt="School Logo"
+              width={150}
+              height={70}
+              className="brightness-200"
+            />
+          </Link>
 
-        {/* DESKTOP MENU */}
-        <nav className="hidden md:flex items-center gap-8 text-[17px] font-medium">
-          {headerMenu.map((item, index) => (
-            <div
-              key={index}
-              className="relative"
-              onMouseEnter={() => {
-                if (closeTimer.current) clearTimeout(closeTimer.current);
-                setOpenMenu(index);
-              }}
-              onMouseLeave={() => {
-                closeTimer.current = setTimeout(() => {
-                  setOpenMenu(null);
-                }, 400); // 👈 dropdown delay
-              }}
-            >
-              {item.children ? (
-                <span
-                  className={`flex items-center gap-1 cursor-pointer
-                    ${
-                      isActive(item)
-                        ? "text-orange-500 font-semibold"
-                        : "hover:text-orange-500"
-                    }
-                  `}
-                >
-                  {item.title}
-                  <FiChevronDown
-                    className={`transition ${
-                      openMenu === index ? "rotate-180 text-orange-500" : ""
-                    }`}
-                  />
-                </span>
-              ) : (
-                <Link
-                  href={item.href}
-                  className={`transition
-                    ${
-                      isActive(item)
-                        ? "text-orange-500 font-semibold"
-                        : "hover:text-orange-500"
-                    }
-                  `}
-                >
-                  {item.title}
-                </Link>
-              )}
+          {/* DESKTOP MENU */}
+          <nav className="hidden md:flex items-center gap-8 text-[17px] font-medium">
+            {headerMenu.map((item, index) => (
+              <div
+                key={index}
+                className="relative"
+                onMouseEnter={() => {
+                  if (closeTimer.current) clearTimeout(closeTimer.current);
+                  setOpenMenu(index);
+                }}
+                onMouseLeave={() => {
+                  closeTimer.current = setTimeout(() => {
+                    setOpenMenu(null);
+                  }, 400);
+                }}
+              >
+                {item.children ? (
+                  <span
+                    className={`flex items-center gap-1 cursor-pointer
+                      ${
+                        isActive(item)
+                          ? "text-orange-500 font-semibold"
+                          : "hover:text-orange-500"
+                      }
+                    `}
+                  >
+                    {item.title}
+                    <FiChevronDown
+                      className={`transition ${
+                        openMenu === index ? "rotate-180 text-orange-500" : ""
+                      }`}
+                    />
+                  </span>
+                ) : (
+                  <Link
+                    href={item.href}
+                    className={`transition
+                      ${
+                        isActive(item)
+                          ? "text-orange-500 font-semibold"
+                          : "hover:text-orange-500"
+                      }
+                    `}
+                  >
+                    {item.title}
+                  </Link>
+                )}
 
-              {/* DROPDOWN */}
-              {item.children && openMenu === index && (
-                <div className="absolute left-0 top-8 bg-[#436873] text-white w-[260px] rounded-md shadow-xl">
-                  {item.children.map((child: any, i: number) => (
-                    <Link
-                      key={i}
-                      href={child.href}
-                      className={`block px-5 py-4 border-t border-white/20 first:border-t-0
-                        ${
-                          pathname === child.href
-                            ? "bg-orange-500 font-semibold"
-                            : "hover:bg-[#517c89]"
-                        }
-                      `}
-                    >
-                      {child.title}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-          ))}
-        </nav>
+                {/* DROPDOWN */}
+                {item.children && openMenu === index && (
+                  <div className="absolute left-0 top-8 bg-[#436873] text-white w-[260px] rounded-md shadow-xl">
+                    {item.children.map((child: any, i: number) => (
+                      <Link
+                        key={i}
+                        href={child.href}
+                        className={`block px-5 py-4 border-t border-white/20 first:border-t-0
+                          ${
+                            pathname === child.href
+                              ? "bg-orange-500 font-semibold"
+                              : "hover:bg-[#517c89]"
+                          }
+                        `}
+                      >
+                        {child.title}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </nav>
 
-        {/* VISIT US */}
-        <Link
-          href="/visit-us"
-          className="hidden md:block px-6 py-2 rounded-full font-semibold bg-white text-orange-500 hover:bg-orange-500 hover:text-white transition"
-        >
-          Visit Us
-        </Link>
+          {/* VISIT US */}
+          <Link
+            href="/visit-us"
+            className="hidden md:block px-6 py-2 rounded-full font-semibold bg-white text-orange-500 hover:bg-orange-500 hover:text-white transition"
+          >
+            Visit Us
+          </Link>
 
-        {/* MOBILE ICON */}
-        <button
-          className="md:hidden text-2xl"
-          onClick={() => setMobileOpen(!mobileOpen)}
-        >
-          {mobileOpen ? <FiX /> : <FiMenu />}
-        </button>
-      </div>
+          {/* MOBILE ICON */}
+          <button
+            className="md:hidden text-2xl"
+            onClick={() => setMobileOpen(true)}
+          >
+            <FiMenu />
+          </button>
+        </div>
+      </header>
 
-      {/* MOBILE MENU */}
+      {/* MOBILE OVERLAY */}
       {mobileOpen && (
-        <div className="md:hidden bg-[#313e3b] text-white px-6 py-6 space-y-4">
-              {/* HOME LINK */}
-    <Link
-  href="/"
-  onClick={() => setMobileOpen(false)}
-  className="block px-4 py-2 text-white hover:text-orange-400 font-semibold"
->
-  Home
-</Link>
+        <div
+          className="fixed inset-0 bg-black/40 z-40"
+          onClick={() => setMobileOpen(false)}
+        />
+      )}
 
+      {/* MOBILE SLIDE MENU (RIGHT SIDE) */}
+      <div
+        className={`fixed top-0 right-0 h-full w-[280px] bg-[#313e3b] text-white z-50
+        transform transition-transform duration-300
+        ${mobileOpen ? "translate-x-0" : "translate-x-full"}`}
+      >
+        {/* CLOSE ICON */}
+        <div className="flex justify-end p-5">
+          <button onClick={() => setMobileOpen(false)} className="text-2xl">
+            <FiX />
+          </button>
+        </div>
+
+        {/* MENU ITEMS */}
+        <div className="px-6 space-y-4">
           {headerMenu.map((item, i) => (
             <div key={i}>
               {item.children ? (
                 <>
-                 <button
-  className={`flex items-center gap-2 font-semibold transition
-    ${
-      openMenu === i || isActive(item)
-        ? "text-orange-400"
-        : "text-white hover:text-orange-400"
-    }
-  `}
-  onClick={() => setOpenMenu(openMenu === i ? null : i)}
->
-  {item.title}
-  <FiChevronDown
-    className={`transition-transform ${
-      openMenu === i ? "rotate-180 text-orange-400" : ""
-    }`}
-  />
-</button>
-
+                  <button
+                    className={`flex items-center justify-between w-full font-semibold
+                      ${
+                        openMenu === i || isActive(item)
+                          ? "text-orange-400"
+                          : "text-white"
+                      }
+                    `}
+                    onClick={() => setOpenMenu(openMenu === i ? null : i)}
+                  >
+                    {item.title}
+                    <FiChevronDown
+                      className={`transition-transform ${
+                        openMenu === i ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
 
                   {openMenu === i && (
                     <div className="ml-4 mt-2 space-y-2">
@@ -207,10 +220,10 @@ export default function Header() {
                 <Link
                   href={item.href}
                   onClick={() => setMobileOpen(false)}
-                  className={`block
+                  className={`block font-semibold
                     ${
                       pathname === item.href
-                        ? "text-orange-400 font-semibold"
+                        ? "text-orange-400"
                         : "hover:text-orange-400"
                     }
                   `}
@@ -221,7 +234,7 @@ export default function Header() {
             </div>
           ))}
         </div>
-      )}
-    </header>
+      </div>
+    </>
   );
 }
