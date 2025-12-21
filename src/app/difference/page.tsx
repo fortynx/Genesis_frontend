@@ -112,15 +112,18 @@ export default function DifferencePage() {
         </section>
 
         {/* IMAGE */}
-        <section className="max-w-6xl mx-auto px-6 py-6">
-          <Image
-            src="/initiative-1.jpg"
-            alt="Genesis Initiative"
-            width={1800}
-            height={500}
-            className="rounded-lg object-cover w-full h-64"
-          />
-        </section>
+         <section className="max-w-6xl mx-auto px-6 py-6">
+  <div className="relative w-full h-[220px] sm:h-[300px] md:h-[400px]">
+    <Image
+      src="/initiative-1.jpg"
+      alt="Genesis Initiative"
+      fill
+      priority
+      className="rounded-lg object-contain md:object-cover"
+    />
+  </div>
+</section>
+
 
         {/* ACCORDION */}
         <section className="max-w-6xl mx-auto px-6 py-14">
