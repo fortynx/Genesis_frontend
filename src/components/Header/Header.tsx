@@ -164,6 +164,7 @@ export default function Header() {
         transform transition-transform duration-300
         ${mobileOpen ? "translate-x-0" : "translate-x-full"}`}
       >
+        
         {/* CLOSE ICON */}
         <div className="flex justify-end p-5">
           <button onClick={() => setMobileOpen(false)} className="text-2xl">
@@ -173,6 +174,14 @@ export default function Header() {
 
         {/* MENU ITEMS */}
         <div className="px-6 space-y-4">
+                 {/* HOME LINK */}
+    <Link
+  href="/"
+  onClick={() => setMobileOpen(false)}
+  className="block px-4 py-2 text-white hover:text-orange-400 font-semibold"
+>
+  Home
+</Link>
           {headerMenu.map((item, i) => (
             <div key={i}>
               {item.children ? (
@@ -194,7 +203,7 @@ export default function Header() {
                       }`}
                     />
                   </button>
-
+                  
                   {openMenu === i && (
                     <div className="ml-4 mt-2 space-y-2">
                       {item.children.map((child: any, j: number) => (

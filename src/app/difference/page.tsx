@@ -4,8 +4,6 @@ import { useState } from "react";
 import Image from "next/image";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer";
-import Breadcrumb from "@/components/Breadcrumb";
-
 
 const initiatives = [
   {
@@ -74,30 +72,36 @@ export default function DifferencePage() {
   const [openId, setOpenId] = useState<string | null>("bookbag");
 
   return (
-    <div className="bg-gray-50 min-h-screen">
-          {/* HERO SECTION */}
-          <section className="relative bg-[#202a22] text-white min-h-[40vh] py-16 px-6 md:px-16">
-            <div className="absolute inset-0 pointer-events-none">
-              <span className="ball ball-1" />
-              <span className="ball ball-2" />
-              <span className="ball ball-3" />
-              <span className="ball ball-4" />
-            </div>
-              {/* HEADER */}
-                    <Header/>
-             
-                 
-    
-            {/* HERO TEXT */}
-            <div className="max-w-6xl mx-auto mt-36">
-              <h1 className="text-4xl md:text-5xl font-bold">Genesis Initiatives</h1>
-              {/* Breadcrumb (RIGHT AFTER HEADING) */}
-                        <Breadcrumb />
-              <p className="text-lg md:text-xl mt-2"></p>
-            </div>
-          </section>
+    <div className="min-h-screen flex flex-col bg-white">
+      <Header />
 
-      <main className="flex-1">
+      {/* ✅ HERO SECTION */}
+      {/* HERO */}
+<section className="relative bg-[#202a22] text-white min-h-[80vh] overflow-hidden">
+
+  {/* Floating dots */}
+  <div className="absolute inset-0 pointer-events-none">
+    <span className="ball ball-1" />
+    <span className="ball ball-2" />
+    <span className="ball ball-3" />
+    <span className="ball ball-4" />
+  </div>
+
+  {/* HERO CONTENT */}
+  <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-20">
+    <div className="pt-48 md:pt-56">
+      <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
+        GENESIS Initiatives
+      </h1>
+
+      <p className="text-sm md:text-base opacity-80">
+        GENESIS Life › GENESIS Initiatives
+      </p>
+    </div>
+  </div>
+</section>
+ <main className="flex-1">
+  
         {/* INTRO */}
         <section className="max-w-6xl mx-auto px-6 py-12">
           <p className="text-gray-700 leading-relaxed">
@@ -108,15 +112,18 @@ export default function DifferencePage() {
         </section>
 
         {/* IMAGE */}
-        <section className="max-w-6xl mx-auto px-6 py-6">
-          <Image
-            src="/initiative-1.jpg"
-            alt="Genesis Initiative"
-            width={1800}
-            height={500}
-            className="rounded-lg object-cover w-full h-64"
-          />
-        </section>
+         <section className="max-w-6xl mx-auto px-6 py-6">
+  <div className="relative w-full h-[220px] sm:h-[300px] md:h-[400px]">
+    <Image
+      src="/initiative-1.jpg"
+      alt="Genesis Initiative"
+      fill
+      priority
+      className="rounded-lg object-contain md:object-cover"
+    />
+  </div>
+</section>
+
 
         {/* ACCORDION */}
         <section className="max-w-6xl mx-auto px-6 py-14">
@@ -150,21 +157,21 @@ export default function DifferencePage() {
 
       <Footer />
 
-      {/* HERO ANIMATION */}
+      {/* HERO BALL ANIMATION */}
       <style jsx>{`
         .ball {
           position: absolute;
-          width: 10px;
-          height: 10px;
+          width: 9px;
+          height: 9px;
           background: #c9a227;
           border-radius: 50%;
           opacity: 0.75;
           animation: float 10s infinite ease-in-out;
         }
         .ball-1 { top: 20%; left: 15%; }
-        .ball-2 { top: 60%; left: 30%; animation-delay: 2s; }
+        .ball-2 { top: 55%; left: 25%; animation-delay: 2s; }
         .ball-3 { top: 35%; right: 20%; animation-delay: 4s; }
-        .ball-4 { bottom: 25%; right: 35%; animation-delay: 6s; }
+        .ball-4 { bottom: 25%; right: 30%; animation-delay: 6s; }
 
         @keyframes float {
           0% { transform: translateY(0); }

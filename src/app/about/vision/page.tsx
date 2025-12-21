@@ -50,14 +50,14 @@ export default function VisionPage() {
       <Header />
 
       {/* HERO */}
-      <section className="relative bg-[#202a22] text-white min-h-[40vh] py-16 px-6 md:px-16 overflow-hidden">
+      <section className="relative bg-[#202a22] text-white min-h-[80vh] py-16 px-6 md:px-16 overflow-hidden">
         <span className="ball ball-1 top-[20%] left-[15%]" />
         <span className="ball ball-2 top-[60%] left-[30%] delay-[2s]" />
         <span className="ball ball-3 top-[35%] right-[20%] delay-[4s]" />
         <span className="ball ball-4 bottom-[20%] right-[35%] delay-[6s]" />
 
         <div className="max-w-6xl mx-auto mt-36">
-          <h1 className="text-4xl md:text-3xl font-bold">
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
             Our Vision & Values
           </h1>
           <Breadcrumb />

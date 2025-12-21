@@ -13,7 +13,7 @@ export default function PrePrimaryPage() {
       <Header/> {/* ✅ Highlights Pre-Primary menu */}
 
       {/* HERO SECTION */}
-      <section className="relative bg-[#202a22] text-white min-h-[40vh] py-16 px-6 md:px-16">
+      <section className="relative bg-[#202a22] text-white min-h-[80vh] py-16 px-6 md:px-16">
         <div className="absolute inset-0 pointer-events-none">
           <span className="ball ball-1" />
           <span className="ball ball-2" />
@@ -21,7 +21,7 @@ export default function PrePrimaryPage() {
           <span className="ball ball-4" />
         </div>
         <div className="max-w-6xl mx-auto mt-36">
-          <h1 className="text-4xl md:text-5xl font-bold">PrePrimary School</h1>
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-4">PrePrimary School</h1>
           {/* Breadcrumb (RIGHT AFTER HEADING) */}
                     <Breadcrumb />
           <p className="text-lg md:text-xl mt-2">

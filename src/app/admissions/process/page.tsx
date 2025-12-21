@@ -12,7 +12,7 @@ export default function AdmissionProcessPage() {
   return (
     <div className="bg-gray-50 min-h-screen">
       {/* HERO */}
-      <section className="relative bg-[#202a22] text-white min-h-[40vh] py-16 px-6 md:px-16">
+      <section className="relative bg-[#202a22] text-white min-h-[80vh] py-16 px-6 md:px-16">
         <div className="absolute inset-0 pointer-events-none">
           <span className="ball ball-1" />
           <span className="ball ball-2" />
@@ -27,7 +27,7 @@ export default function AdmissionProcessPage() {
 
         {/* PAGE HEADING */}
         <div className="max-w-6xl mx-auto mt-36">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
             Admissions 
           </h1>
           {/* Breadcrumb (RIGHT AFTER HEADING) */}

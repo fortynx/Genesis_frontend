@@ -68,7 +68,7 @@ export default function WhyUsPage() {
       <Header />
 
       {/* HERO */}
-<section className="relative bg-[#202a22] text-white min-h-[70vh] overflow-hidden">
+<section className="relative bg-[#202a22] text-white min-h-[80vh] overflow-hidden">
 
   {/* FLOATING YELLOW BALLS */}
   <div className="absolute inset-0 pointer-events-none">

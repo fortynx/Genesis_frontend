@@ -4,7 +4,6 @@ import Image from "next/image";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer";
 
-
 export default function CampusPage() {
   return (
     <div className="min-h-screen flex flex-col bg-white">
@@ -12,7 +11,7 @@ export default function CampusPage() {
 
       {/* HERO – MATCHED STYLE */}
       {/* HERO */}
-<section className="relative bg-[#202a22] text-white min-h-[70vh] overflow-hidden">
+<section className="relative bg-[#202a22] text-white min-h-[80vh] overflow-hidden">
 
   {/* Floating dots */}
   <div className="absolute inset-0 pointer-events-none">
