@@ -10,7 +10,7 @@ const tabs = [
     slug: "/programs",
     label: "Our Programs",
     color: "bg-[#e45a4d]",
-    image: "/programs.jpg",
+    image: "/program.jpg",
     title: "Our Programs",
     desc:
       "From Montessori Preschool to Grade 12, offering an integrated Cambridge and CBSE curriculum.",
@@ -20,29 +20,27 @@ const tabs = [
     slug: "/difference",
     label: "The GENESIS Difference",
     color: "bg-[#a6d8d8]",
-    image: "/difference.jpg",
+    image: "/differences.jpg",
     title: "The GENESIS Difference",
     desc:
       "Personalised learning, strong literacy foundations, and holistic development.",
   },
   {
-   
     id: 2,
     slug: "/campus",
     label: "Our Campus",
     color: "bg-[#3b84a0]",
-    image: "/campus.jpg",
+    image: "/hero1st.jpg",
     title: "Our Campus",
     desc:
       "A safe, modern, green campus designed to support emotional and academic growth.",
-  
   },
   {
     id: 3,
     slug: "/admissions",
     label: "Admission Process",
     color: "bg-[#f2c94c]",
-    image: "/admissions.jpg",
+    image: "/admissionimg.jpg",
     title: "Admission Process",
     desc:
       "A simple and transparent admission process with guidance at every step.",
