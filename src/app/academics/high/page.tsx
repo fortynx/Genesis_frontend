@@ -26,7 +26,7 @@ export default function HighPage() {
         {/* HEADER */}
         <Header/>
         <div className="max-w-6xl mx-auto mt-36">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">High School</h1>
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-4">High School</h1>
           {/* Breadcrumb (RIGHT AFTER HEADING) */}
                     <Breadcrumb />
           <p className="text-lg md:text-xl"></p>

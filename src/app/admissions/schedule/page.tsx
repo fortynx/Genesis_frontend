@@ -3,6 +3,7 @@
 import { useState, FormEvent } from "react";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer";
+import Breadcrumb from "@/components/Breadcrumb";
 
 type FormState = {
   firstName: string;
@@ -85,27 +86,30 @@ export default function ScheduleVisitPage() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-white">
-      <Header />
-
-      {/* HERO */}
-      <header className="relative bg-[#202a22] text-white py-40 md:py-48 overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <span className="ball ball-1" />
-          <span className="ball ball-2" />
-          <span className="ball ball-3" />
-          <span className="ball ball-4" />
-        </div>
-
-        <div className="relative max-w-6xl mx-auto px-6 pt-6">
-          <h1 className="text-4xl md:text-5xl font-extrabold">
-            Schedule a Visit
-          </h1>
-          <p className="mt-4 opacity-80">
-            Admissions › Schedule a Visit
-          </p>
-        </div>
-      </header>
+       <div className="bg-gray-50 min-h-screen">
+          {/* HERO */}
+          <section className="relative bg-[#202a22] text-white min-h-[80vh] py-16 px-6 md:px-16">
+            <div className="absolute inset-0 pointer-events-none">
+              <span className="ball ball-1" />
+              <span className="ball ball-2" />
+              <span className="ball ball-3" />
+              <span className="ball ball-4" />
+            </div>
+            <Header/>
+            
+    
+               
+                
+    
+            {/* PAGE HEADING */}
+            <div className="max-w-6xl mx-auto mt-36">
+              <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
+                Schedule 
+              </h1>
+              {/* Breadcrumb (RIGHT AFTER HEADING) */}
+                        <Breadcrumb />
+            </div>
+          </section>
 
       {/* FORM */}
       <main className="flex-1">

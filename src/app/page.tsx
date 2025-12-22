@@ -6,7 +6,6 @@ import AtAGlance from "@/components/AtAGlance";
 import ParentQuotes from "@/components/ParentQuotes";
 import Footer from "@/components/Footer";
 
-
 export default function Home() {
   return (
     <>

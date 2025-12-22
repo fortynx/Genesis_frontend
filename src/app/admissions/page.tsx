@@ -46,25 +46,32 @@ export default function AdmissionsPage() {
     <div className="min-h-screen flex flex-col bg-white">
       <Header />
 
-      {/* ✅ HERO SECTION */}
-      <header className="relative bg-[#202a22] text-white py-36 overflow-hidden">
-        {/* Animated dots */}
-        <div className="absolute inset-0 pointer-events-none">
-          <span className="ball ball-1" />
-          <span className="ball ball-2" />
-          <span className="ball ball-3" />
-          <span className="ball ball-4" />
-        </div>
+      {/* HERO – MATCHED STYLE */}
+      {/* HERO */}
+<section className="relative bg-[#202a22] text-white min-h-[80vh] overflow-hidden">
 
-        <div className="relative max-w-6xl mx-auto px-6 text-center">
-          <h1 className="text-4xl md:text-5xl font-extrabold">
-            Admissions Process
-          </h1>
-          <p className="mt-4 opacity-80">
-            Admissions › Admissions Process
-          </p>
-        </div>
-      </header>
+  {/* Floating dots */}
+  <div className="absolute inset-0 pointer-events-none">
+    <span className="ball ball-1" />
+    <span className="ball ball-2" />
+    <span className="ball ball-3" />
+    <span className="ball ball-4" />
+  </div>
+
+  {/* HERO CONTENT */}
+  <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-20">
+    <div className="pt-48 md:pt-56">
+      <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
+        Admissions Process
+      </h1>
+
+      <p className="text-sm md:text-base opacity-80">
+        Admissions › Admissions Process
+      </p>
+    </div>
+  </div>
+</section>
+
 
       <main className="flex-1">
         {/* INTRO */}
@@ -76,7 +83,7 @@ export default function AdmissionsPage() {
           </p>
         </section>
 
-        {/* ✅ STEPS WITH DICE ICONS */}
+        {/* STEPS */}
         <section className="max-w-6xl mx-auto px-6 pb-16">
           <div className="grid md:grid-cols-5 gap-8">
             {steps.map((s, i) => (
@@ -84,13 +91,11 @@ export default function AdmissionsPage() {
                 key={i}
                 className="bg-white border rounded-xl shadow-sm p-6 text-center hover:shadow-md transition"
               >
-                  <div className="flex justify-center mb-4">
-  <span className="text-5xl text-[#c9a227]">
-    {s.icon}
-  </span>
-</div>
-
-
+                <div className="flex justify-center mb-4">
+                  <span className="text-5xl text-[#c9a227]">
+                    {s.icon}
+                  </span>
+                </div>
 
                 <h3 className="font-semibold mt-2">{s.title}</h3>
                 <p className="text-gray-500 text-sm mt-3">{s.desc}</p>
@@ -112,64 +117,30 @@ export default function AdmissionsPage() {
             </Link>
           </div>
         </section>
-
-        
-        
       </main>
 
       <Footer />
 
-      {/* ✅ HERO ANIMATION STYLES */}
+      {/* HERO DOT ANIMATION */}
       <style jsx>{`
         .ball {
           position: absolute;
-          width: 14px;
-          height: 14px;
+          width: 10px;
+          height: 10px;
           background: #c9a227;
           border-radius: 50%;
           opacity: 0.8;
           animation: float 10s infinite ease-in-out;
         }
-
-        .ball-1 {
-          top: 20%;
-          left: 15%;
-        }
-
-        .ball-2 {
-          top: 60%;
-          left: 30%;
-          animation-delay: 2s;
-        }
-
-        .ball-3 {
-          top: 35%;
-          right: 20%;
-          animation-delay: 4s;
-        }
-
-        .ball-4 {
-          bottom: 20%;
-          right: 35%;
-          animation-delay: 6s;
-        }
+        .ball-1 { top: 25%; left: 15%; }
+        .ball-2 { top: 60%; left: 30%; animation-delay: 2s; }
+        .ball-3 { top: 35%; right: 22%; animation-delay: 4s; }
+        .ball-4 { bottom: 25%; right: 35%; animation-delay: 6s; }
 
         @keyframes float {
-          0% {
-            transform: translateY(0);
-          }
-          50% {
-            transform: translateY(-25px);
-          }
-          100% {
-            transform: translateY(0);
-          }
-        }
-
-        .text-gradient {
-          background: linear-gradient(135deg, #c9a227, #2ecc71);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
+          0% { transform: translateY(0); }
+          50% { transform: translateY(-20px); }
+          100% { transform: translateY(0); }
         }
       `}</style>
     </div>

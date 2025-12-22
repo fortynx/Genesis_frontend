@@ -21,7 +21,7 @@ export default function PrePrimaryPage() {
           <span className="ball ball-4" />
         </div>
         <div className="max-w-6xl mx-auto mt-36">
-          <h1 className="text-4xl md:text-5xl font-bold">PrePrimary School</h1>
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-4">PrePrimary School</h1>
           {/* Breadcrumb (RIGHT AFTER HEADING) */}
                     <Breadcrumb />
           <p className="text-lg md:text-xl mt-2">

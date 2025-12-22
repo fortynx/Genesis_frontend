@@ -4,9 +4,9 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 
 const slides = [
-  { id: 1, title: "Expand Horizons", subtitle: "Where learning meets creativity", image: "/hero1.jpg" },
-  { id: 2, title: "Redefine Possibility", subtitle: "A campus built for the future", image: "/hero2.jpeg" },
-  { id: 3, title: "Imagine Beyond Limits", subtitle: "Discover talent • Build confidence", image: "/hero3.jpeg" },
+  { id: 1, title: "Expand Horizons", subtitle: "Where learning meets creativity", image: "/hero1st.jpg" },
+  { id: 2, title: "Redefine Possibility", subtitle: "A campus built for the future", image: "/hero2nd.jpg" },
+  { id: 3, title: "Imagine Beyond Limits", subtitle: "Discover talent • Build confidence", image: "/hero3rd.jpg" },
 ];
 
 export default function Hero() {

@@ -1,62 +1,45 @@
 // components/Differentiators.tsx
-// components/Differentiators.tsx
 import Link from "next/link";
 
 const items = [
   {
     id: 1,
     title: "Dynamic Educational Pathways",
-    desc:
-      "A flexible and future-ready curriculum integrating Cambridge and CBSE frameworks to support diverse learning goals.",
     icon: "learning",
   },
   {
     id: 2,
     title: "Personalized Learning",
-    desc:
-      "Individual attention through Montessori-inspired methods that respect each child’s pace, strengths, and interests.",
     icon: "user-group",
   },
   {
     id: 3,
     title: "Unique Pedagogy",
-    desc:
-      "An inquiry-led approach that nurtures curiosity, critical thinking, and deep conceptual understanding.",
     icon: "book",
   },
   {
     id: 4,
     title: "Transformative Growth",
-    desc:
-      "Balanced development focusing on academics, emotional intelligence, leadership, and life skills.",
     icon: "arrow-up",
   },
   {
     id: 5,
     title: "Literacy Excellence",
-    desc:
-      "Strong reading and writing foundations through phonics, structured literacy, and advanced language programs.",
     icon: "library",
   },
   {
     id: 6,
     title: "Celebrating Uniqueness",
-    desc:
-      "Enrichment programs that encourage creativity, talent discovery, and self-expression.",
     icon: "sparkles",
   },
   {
     id: 7,
     title: "Diverse Extracurriculars",
-    desc:
-      "Sports, arts, clubs, and activities that promote teamwork, confidence, and holistic growth.",
     icon: "star",
   },
   {
     id: 8,
     title: "State-of-the-Art Facilities",
-    desc:
-      "Modern classrooms, labs, and learning spaces designed to inspire innovation and collaboration.",
     icon: "building",
   },
 ];
@@ -116,13 +99,21 @@ function Icon({ name }: { name: string }) {
     case "sparkles":
       return (
         <svg className={common} fill="none" viewBox="0 0 24 24">
-          <path d="M12 3l1.6 3.2L17 8l-3.4 1.8L12 13l-1.6-3.2L7 8l3.4-1.8L12 3z" stroke="white" strokeWidth="1.3" />
+          <path
+            d="M12 3l1.6 3.2L17 8l-3.4 1.8L12 13l-1.6-3.2L7 8l3.4-1.8L12 3z"
+            stroke="white"
+            strokeWidth="1.3"
+          />
         </svg>
       );
     case "star":
       return (
         <svg className={common} fill="none" viewBox="0 0 24 24">
-          <path d="M12 17.3L6.2 20l1-5.8L3 10.5l5.9-.9L12 4l3.1 5.6 5.9.9-4.2 3.7L17.8 20 12 17.3z" stroke="white" strokeWidth="1.3" />
+          <path
+            d="M12 17.3L6.2 20l1-5.8L3 10.5l5.9-.9L12 4l3.1 5.6 5.9.9-4.2 3.7L17.8 20 12 17.3z"
+            stroke="white"
+            strokeWidth="1.3"
+          />
         </svg>
       );
     case "building":
@@ -164,13 +155,10 @@ export default function Differentiators() {
                   <Icon name={it.icon} />
                 </div>
 
-                <h3 className="mt-6 font-semibold text-gray-800">
+                {/* TITLE ONLY */}
+                <h3 className="mt-6 font-semibold text-gray-800 text-base">
                   {it.title}
                 </h3>
-
-                <p className="mt-3 text-sm text-gray-600 max-w-[220px]">
-                  {it.desc}
-                </p>
 
                 {/* VERTICAL DIVIDER */}
                 {!isEndOfRow && (

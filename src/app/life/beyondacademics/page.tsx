@@ -25,10 +25,10 @@ export default function BeyondAcademicsPage() {
 
         {/* HERO TEXT */}
         <div className="max-w-6xl mx-auto mt-36">
-          <h1 className="text-4xl md:text-5xl font-bold">Genesis Life</h1>
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-4">Genesis Life</h1>
           {/* Breadcrumb (RIGHT AFTER HEADING) */}
                     <Breadcrumb />
-          <p className="text-lg md:text-xl mt-2">Beyond-Academics</p>
+          <p className="text-lg md:text-xl mt-2"></p>
         </div>
       </section>
 

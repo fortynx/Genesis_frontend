@@ -27,7 +27,7 @@ export default function AdmissionProcessPage() {
 
         {/* PAGE HEADING */}
         <div className="max-w-6xl mx-auto mt-36">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
             Admissions 
           </h1>
           {/* Breadcrumb (RIGHT AFTER HEADING) */}

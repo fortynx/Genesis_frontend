@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 
 export default function ProgramsPage() {
 
-  // ✅ Scroll-based animation
+  // Scroll-based animation
   useEffect(() => {
     const elements = document.querySelectorAll(
       ".slide-left, .slide-right"
@@ -34,20 +34,11 @@ export default function ProgramsPage() {
       {/* NAVBAR */}
       <Header />
 
-      {/* ✅ HERO SECTION – INCREASED SIZE + ANIMATION */}
-      <section className="relative flex items-center pt-32 pb-28 md:pt-40 md:pb-36 overflow-hidden">
+      {/* HERO */}
+      <section className="relative bg-[#202a22] text-white min-h-[80vh] overflow-hidden">
 
-        {/* Hero Image */}
-        <Image
-          src="/curriculum-hero.png"
-          alt="Curriculum Overview"
-          fill
-          priority
-          className="object-cover"
-        />
-
-        {/* Green Overlay */}
-        <div className="absolute inset-0 bg-[#202a22]/85" />
+        {/* Background Image */}
+        
 
         {/* Animated yellow balls */}
         <div className="absolute inset-0 pointer-events-none">
@@ -55,23 +46,19 @@ export default function ProgramsPage() {
           <span className="ball ball-2" />
           <span className="ball ball-3" />
           <span className="ball ball-4" />
-          <span className="ball ball-5" />
         </div>
 
-        {/* Hero Content */}
-        <div className="relative max-w-6xl mx-auto px-6 text-white">
-          <h1 className="text-4xl md:text-5xl font-bold">
-            Curriculum Overview
-          </h1>
-          <p className="mt-3 opacity-90">
-            Academics › Curriculum Overview
-          </p>
+        {/* HERO CONTENT */}
+        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-20">
+          <div className="pt-48 md:pt-56">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+              Curriculum Overview
+            </h1>
 
-          <p className="mt-6 max-w-3xl text-lg leading-relaxed">
-            Our curriculum is thoughtfully designed to nurture curiosity,
-            encourage critical thinking, and support holistic development
-            from early years through high school.
-          </p>
+            <p className="text-sm md:text-base opacity-80">
+              Academics › Curriculum Overview
+            </p>
+          </div>
         </div>
       </section>
 
@@ -139,7 +126,8 @@ export default function ProgramsPage() {
             Cambridge Curriculum
           </h2>
           <p className="text-gray-700 leading-relaxed">
-            Internationally recognised curriculum focused on inquiry-based learning and conceptual understanding.
+            Internationally recognised curriculum focused on inquiry-based learning
+            and conceptual understanding.
           </p>
         </div>
       </section>
@@ -162,12 +150,12 @@ export default function ProgramsPage() {
 
       <Footer />
 
-      {/* ✅ HERO BALL ANIMATION */}
+      {/* HERO BALL ANIMATION */}
       <style jsx>{`
         .ball {
           position: absolute;
-          width: 9px;
-          height: 9px;
+          width: 8px;
+          height: 8px;
           background: #c9a227;
           border-radius: 50%;
           opacity: 0.75;
@@ -177,7 +165,6 @@ export default function ProgramsPage() {
         .ball-2 { top: 55%; left: 25%; animation-delay: 2s; }
         .ball-3 { top: 35%; right: 20%; animation-delay: 4s; }
         .ball-4 { bottom: 25%; right: 30%; animation-delay: 6s; }
-        .ball-5 { top: 15%; right: 45%; animation-delay: 8s; }
 
         @keyframes float {
           0% { transform: translateY(0); }

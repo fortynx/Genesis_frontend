@@ -26,7 +26,7 @@ export default function PrimaryPage() {
 
         {/* HERO TEXT */}
         <div className="max-w-6xl mx-auto mt-36">
-          <h1 className="text-4xl md:text-5xl font-bold">Primary School</h1>
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-4">Primary School</h1>
           {/* Breadcrumb (RIGHT AFTER HEADING) */}
                     <Breadcrumb />
           <p className="text-lg md:text-xl mt-2"></p>
