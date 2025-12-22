@@ -69,21 +69,56 @@ export default function ScheduleVisitPage() {
     return true;
   }
 
-  async function onSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    if (!validate()) return;
+ async function onSubmit(e: FormEvent<HTMLFormElement>) {
+  e.preventDefault();
+  if (!validate()) return;
 
-    setSubmitting(true);
-    setSuccess(null);
-    setError(null);
+  setSubmitting(true);
+  setSuccess(null);
+  setError(null);
 
-    await new Promise((res) => setTimeout(res, 800));
+  // Prepare payload with snake_case keys for backend
+  const payload = {
+  first_name: form.firstName,
+  last_name: form.lastName,
+  email: form.email,
+  phone: form.phone,
+  grade: form.grade,
+  campus: form.campus,
+  address: form.address,
+  additional: form.additional,
+};
 
-    setSuccess(
-      "Your request was submitted successfully. Our admissions team will contact you shortly."
-    );
-    setSubmitting(false);
+try {
+  const response = await fetch("http://127.0.0.1:8000/api/admissions/submit/", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
+  });
+
+  if (!response.ok) {
+    const errorData = await response.json();
+    console.error("Validation errors:", errorData);
+    setError(JSON.stringify(errorData));
+    return;
   }
+
+  setSuccess(
+    "Your request was submitted successfully. Our admissions team will contact you shortly."
+  );
+  setError(null);
+} catch (err) {
+  console.error("Network error:", err);
+  setError("Network error. Please try again later.");
+} finally {
+  setSubmitting(false);
+}
+
+}
+
+
 
   return (
        <div className="bg-gray-50 min-h-screen">
